@@ -1,0 +1,7 @@
+.sidebarContainer {
+  /* background-color: green; */
+  grid-row: 2/3;
+  grid-column: 1/2;
+  display: grid;
+  height: calc(100vh - var(--headerHeight));
+}

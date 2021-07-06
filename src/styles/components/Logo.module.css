@@ -1,7 +1,8 @@
 .headerContainerLogo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .headerContainerLogo svg {
-  max-height: 22px;
+  max-height: 21px;
 }

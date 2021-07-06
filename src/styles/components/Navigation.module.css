@@ -1,6 +1,4 @@
 .navigation {
-  grid-row: 1/2;
-  grid-column: 1/2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,4 +9,5 @@
   display: flex;
   align-items: center;
   font-size: 25px;
+  cursor: pointer;
 }

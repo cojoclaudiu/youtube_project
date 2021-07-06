@@ -3,13 +3,13 @@
   --btnBg: #f8f8f8;
   --icnClr: #5f5f5f;
   --hoverIcnClr: #5f5f5f;
-  --borderClr: #D9D9D9;
-  --lightBorder:#E4E4E4;
-  --blue: #075ED3;
+  --borderClr: #d9d9d9;
+  --lightBorder: #e4e4e4;
+  --blue: #075ed3;
 
   /* paddings and margins */
   --paddingS: 10px;
   --paddingM: 16px;
+
+  --headerHeight: 56px;
 }
-
-

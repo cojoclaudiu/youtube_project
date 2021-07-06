@@ -1,19 +1,20 @@
 .categoriesRow {
+  /* background-color: gold; */
   grid-row: 2/3;
-  grid-column: 2/3;
+  grid-column: 2/-1;
   display: flex;
   font-size: 14px;
-  height: 56px;
+  height: var(--headerHeight);
   align-items: center;
   justify-content: center;
 
-  border-top: 1px solid var(--lightBorder);
-  border-bottom: 1px solid var(--lightBorder);
-  border-width: thin;
+  border-top:1px solid var(--lightBorder);
+  border-bottom:1px solid var(--lightBorder)
 }
 
 .categoryButton {
   background-color: var(--btnBg);
+  white-space: nowrap;
   padding: 5px 15px;
   margin-right: 10px;
   border-radius: 20px;

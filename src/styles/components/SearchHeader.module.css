@@ -1,11 +1,19 @@
+.headerContainerSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: greenyellow; */
+}
 .searchForm {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 25%;
 }
 
 .searchInput {
-  width: 20%;
+  display: flex;
+  width: 100%;
   height: 32px;
   border: 1px solid var(--borderClr);
   border-top-left-radius: 2px;

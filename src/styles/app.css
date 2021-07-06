@@ -1,0 +1,5 @@
+.mainWrapper {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+}

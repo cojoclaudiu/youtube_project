@@ -1,0 +1,9 @@
+.headerContainer {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 250px 2fr 10%;
+  grid-template-rows: 56px;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,26 @@
+.categoriesRow {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  display: flex;
+  font-size: 14px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid var(--lightBorder);
+  border-bottom: 1px solid var(--lightBorder);
+  border-width: thin;
+}
+
+.categoryButton {
+  background-color: var(--btnBg);
+  padding: 5px 15px;
+  margin-right: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--lightBorder);
+  border-width: thin;
+}
+
+.categoryButton:hover {
+  filter: brightness(0.96);
+}

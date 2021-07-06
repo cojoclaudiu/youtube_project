@@ -14,35 +14,6 @@
   color: var(--icnClr);
 }
 
-/* SIGN IN BTN */
-
-.outlineButton {
-  color: var(--blue);
-}
-
-.signInBtn {
-  display: grid;
-  font-size: 14px;
-  grid-template-columns: 1fr 3fr;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 550;
-  cursor: pointer;
-
-  border: 1px solid var(--blue);
-  border-radius: 2px;
-  padding: 5px 8px;
-}
-
-.signInIcon {
-  display: flex;
-  align-items: center;
-  padding-right: 10px;
-  font-size: 30px;
-  margin: 0;
-  padding: 0;
-}
 
 .headerSecondRow {
   grid-column: 2 / 4;

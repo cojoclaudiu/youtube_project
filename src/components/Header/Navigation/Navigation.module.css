@@ -10,4 +10,14 @@
   align-items: center;
   font-size: 25px;
   cursor: pointer;
+  color: var(--icnClr);
+
+  transition: scale 0.4s;
+}
+
+.navigationButton:active {
+  background-color: var(--hoverColor);
+  border: 1px solid var(--lightBorder);
+  padding: 8px;
+  border-radius: 50%;
 }

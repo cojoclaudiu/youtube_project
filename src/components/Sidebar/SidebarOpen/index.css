@@ -1,0 +1,29 @@
+.sb:not(:last-child) {
+  border-bottom: 1px solid var(--borderClr);
+  border-width: thin;
+}
+
+.sbContainer {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  height: 48px;
+  font-size: 14px;
+  padding: 0 var(--paddingXL);
+  align-items: center;
+}
+
+.sbContainer:hover {
+  background-color: var(--hoverSBmenu);
+}
+
+.sbIcon {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: var(--sbIcon);
+  margin-bottom: 3px;
+}
+
+.sbTitle {
+  padding-left: 10px;
+}

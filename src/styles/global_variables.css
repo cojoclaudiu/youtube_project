@@ -7,9 +7,15 @@
   --lightBorder: #e4e4e4;
   --blue: #075ed3;
 
+  --hoverColor: #e6e6e6;
+
+  --hoverSBmenu:#F1F2F1;
+  --sbIcon: #5F5F5F;
+
   /* paddings and margins */
   --paddingS: 10px;
   --paddingM: 16px;
+  --paddingXL: 24px;
 
   --headerHeight: 56px;
 }

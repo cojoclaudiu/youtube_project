@@ -1,0 +1,11 @@
+.signInBox {
+  display: flex;
+  flex-direction: column;
+  padding: 12px var(--paddingXL);
+  border-bottom: 1px solid var(--borderClr);
+  border-width: thin;
+}
+.signInButton {
+  padding-top: 10px;
+  max-width: 120px;
+}

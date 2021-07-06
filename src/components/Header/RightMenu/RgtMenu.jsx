@@ -1,8 +1,10 @@
 import styles from './RgtMenu.module.css';
 import React from 'react';
 
-import { IoAppsSharp, IoPersonCircleSharp } from 'react-icons/io5';
+import { IoAppsSharp } from 'react-icons/io5';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import SignInButton from '../../Buttons/SignIn/SignInButton';
+
 const RgtMenu = () => {
   return (
     <div className={styles.menuRgt}>
@@ -18,14 +20,7 @@ const RgtMenu = () => {
         </button>
       </div>
 
-      <div className={styles.outlineButton}>
-        <a href="/" className={styles.signInBtn}>
-          <div className={styles.signInIcon}>
-            <IoPersonCircleSharp />
-          </div>
-          <span>Sign In</span>
-        </a>
-      </div>
+      <SignInButton />
     </div>
   );
 };

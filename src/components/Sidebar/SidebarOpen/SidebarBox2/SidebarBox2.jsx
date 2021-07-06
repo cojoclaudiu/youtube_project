@@ -1,5 +1,5 @@
 import '../index.css';
-import styles from './SidebarBox2.module.css';
+// import styles from './SidebarBox2.module.css';
 import React from 'react';
 import { MdHistory, MdVideoLibrary } from 'react-icons/md';
 

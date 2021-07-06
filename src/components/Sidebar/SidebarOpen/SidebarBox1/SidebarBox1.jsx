@@ -1,4 +1,4 @@
-import styles from './SidebarBox1.module.css';
+// import styles from './SidebarBox1.module.css';
 import "../index.css"
 import React from 'react';
 

@@ -1,6 +1,6 @@
-import styles from '../../styles/components/Navigation.module.css';
+import styles from './Navigation.module.css';
 import React, { useContext } from 'react';
-import { SidebarContext } from '../../context/SidebarContext';
+import { SidebarContext } from '../../../context/SidebarContext';
 import { BiMenu } from 'react-icons/bi';
 
 const Navigation = () => {

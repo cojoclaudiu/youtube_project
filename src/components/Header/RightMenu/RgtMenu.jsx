@@ -1,5 +1,5 @@
+import styles from './RgtMenu.module.css';
 import React from 'react';
-import styles from '../../styles/components/RgtMenu.module.css';
 
 import { IoAppsSharp, IoPersonCircleSharp } from 'react-icons/io5';
 import { BsThreeDotsVertical } from 'react-icons/bs';

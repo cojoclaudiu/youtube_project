@@ -1,5 +1,5 @@
+import styles from './SearchHeader.module.css';
 import React from 'react';
-import styles from '../../styles/components/SearchHeader.module.css';
 
 import { AiOutlineSearch } from 'react-icons/ai';
 

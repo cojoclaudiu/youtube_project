@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/components/Categories.module.css';
+import styles from './Categories.module.css';
 
 const categoriesData = require('../../data/headerCategories.json');
 

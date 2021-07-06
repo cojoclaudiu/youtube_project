@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/components/Logo.module.css';
+import styles from './Logo.module.css';
 
 const Logo = props => (
   <div className={styles.headerContainerLogo}>

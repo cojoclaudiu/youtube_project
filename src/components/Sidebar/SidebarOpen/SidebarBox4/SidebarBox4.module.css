@@ -1,0 +1,14 @@
+.headingTitle {
+  font-size: 14px;
+  color: var(--colorMediumDark);
+  text-transform: uppercase;
+  padding: var(--paddingM) var(--paddingXL) var(--paddingS) var(--paddingXL);
+}
+
+.iconDark {
+  font-size: 18px;
+  background-color: var(--iconDark);
+  color: var(--iconOnDark);
+  padding: 4px;
+  border-radius: 50%;
+}

@@ -25,5 +25,5 @@
 }
 
 .sbTitle {
-  padding-left: 10px;
+  padding-left: var(--paddingXL);
 }

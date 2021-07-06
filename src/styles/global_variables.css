@@ -9,8 +9,12 @@
 
   --hoverColor: #e6e6e6;
 
-  --hoverSBmenu:#F1F2F1;
-  --sbIcon: #5F5F5F;
+  --hoverSBmenu: #f1f2f1;
+  --sbIcon: #5f5f5f;
+  --iconDark: #3f3f3f;
+  --iconOnDark: #fefefe;
+
+  --colorMediumDark: #606060;
 
   /* paddings and margins */
   --paddingS: 10px;

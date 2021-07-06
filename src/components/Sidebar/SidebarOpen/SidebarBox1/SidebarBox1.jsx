@@ -1,9 +1,9 @@
 // import styles from './SidebarBox1.module.css';
-import "../index.css"
+import '../index.css';
 import React from 'react';
 
 // Project Icons
-import { MdExplore, MdSubscriptions,MdHome } from 'react-icons/md';
+import { MdExplore, MdSubscriptions, MdHome } from 'react-icons/md';
 
 //sb = sidebar box + number of the box
 

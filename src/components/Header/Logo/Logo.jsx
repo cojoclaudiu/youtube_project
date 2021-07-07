@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Logo.module.css';
 
-const Logo = props => (
+const Logo = () => (
   <div className={styles.headerContainerLogo}>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 110" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 492 110">
       <path d="M154.3 17.5a19.6 19.6 0 00-13.8-13.8C128.4.4 79.7.4 79.7.4S31 .5 18.9 3.8A19.6 19.6 0 005.1 17.6C1.44 39.1.02 71.86 5.2 92.5A19.6 19.6 0 0019 106.3c12.1 3.3 60.8 3.3 60.8 3.3s48.7 0 60.8-3.3a19.6 19.6 0 0013.8-13.8c3.86-21.53 5.05-54.27-.1-75z" fill="red" />
       <path fill="#fff" d="M64.2 78.4L104.6 55 64.2 31.6z" />
       <g fill="#282828">

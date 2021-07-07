@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
 
-  border-top:1px solid var(--lightBorder);
-  border-bottom:1px solid var(--lightBorder)
+  border-top: 1px solid var(--lightBorder);
+  border-bottom: 1px solid var(--lightBorder);
 }
 
 .categoryButton {

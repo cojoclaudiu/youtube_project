@@ -1,52 +1,50 @@
-import styles from './SidebarClosed.module.css';
 import React from 'react';
-import { MdHome, MdExplore, MdSubscriptions, MdHistory, MdVideoLibrary } from 'react-icons/md';
+import {
+  MdHome, MdExplore, MdSubscriptions, MdHistory, MdVideoLibrary,
+} from 'react-icons/md';
+import styles from './SidebarClosed.module.css';
 
 const sbClosedData = [
   {
     id: 'home1',
     name: 'Home',
-    icon: <MdHome />
+    icon: <MdHome />,
   },
 
   {
     id: 'explore2',
     name: 'Explore',
-    icon: <MdExplore />
+    icon: <MdExplore />,
   },
 
   {
     id: 'subs3',
     name: 'Subscriptions',
-    icon: <MdSubscriptions />
+    icon: <MdSubscriptions />,
   },
 
   {
     id: 'lib4',
     name: 'Library',
-    icon: <MdVideoLibrary />
+    icon: <MdVideoLibrary />,
   },
 
   {
     id: 'history5',
     name: 'History',
-    icon: <MdHistory />
-  }
+    icon: <MdHistory />,
+  },
 ];
 
-const SidebarClosed = () => {
-  return (
-    <div className={styles.sidebarClosed}>
-      {sbClosedData.map(link => {
-        return (
-          <div key={link.id} className={styles.itemContainer}>
-            <div className={styles.itemIcon}>{link.icon}</div>
-            <div className={styles.itemName}>{link.name}</div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+const SidebarClosed = () => (
+  <div className={styles.sidebarClosed}>
+    {sbClosedData.map((link) => (
+      <div key={link.id} className={styles.itemContainer}>
+        <div className={styles.itemIcon}>{link.icon}</div>
+        <div className={styles.itemName}>{link.name}</div>
+      </div>
+    ))}
+  </div>
+);
 
 export default SidebarClosed;

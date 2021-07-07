@@ -1,4 +1,7 @@
 .sidebarOpen {
   font-size: 14px;
   width: 250px;
+
+  overflow: scroll;
+  scrollbar-color: #cbcbcb transparent;
 }

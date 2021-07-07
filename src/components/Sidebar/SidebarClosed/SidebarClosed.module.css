@@ -1,12 +1,14 @@
 .sidebarClosed {
-  width: 70px;
+  width: max-content;
 }
 
 .itemContainer {
   display: flex;
+  width: 70px;
   flex-direction: column;
   align-items: center;
-  padding: var(--paddingS) var(--paddingXL);
+  justify-content: center;
+  padding: var(--paddingM) var(--paddingXL);
 }
 
 .itemContainer:hover {
@@ -19,7 +21,6 @@
   align-items: center;
   font-size: 22px;
   color: var(--sbIcon);
-  margin-bottom: 3px;
 }
 
 .itemName {

@@ -207,3 +207,7 @@ a:hover,
 a:active {
   text-decoration: none;
 }
+
+body {
+  background-color: var(--btnBg);
+}

@@ -1,9 +1,11 @@
 .sidebarContainer {
-  /* background-color: green; */
+  background-color: white;
   grid-row: 2/3;
   grid-column: 1/2;
+
+  display: flex;
+  width: fit-content;
+
   height: calc(100vh - var(--headerHeight));
-  margin-top: 10px;
-  overflow: scroll;
-  scrollbar-color: #CBCBCB transparent;
+  padding-top: 10px;
 }

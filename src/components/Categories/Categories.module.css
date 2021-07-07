@@ -1,5 +1,5 @@
 .categoriesRow {
-  /* background-color: gold; */
+  background-color: white;
   grid-row: 2/3;
   grid-column: 2/-1;
   display: flex;

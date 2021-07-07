@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  MdHome, MdExplore, MdSubscriptions, MdHistory, MdVideoLibrary,
-} from 'react-icons/md';
+import { MdHome, MdExplore, MdSubscriptions, MdHistory, MdVideoLibrary } from 'react-icons/md';
 import styles from './SidebarClosed.module.css';
 
 const sbClosedData = [

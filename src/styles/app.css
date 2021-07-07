@@ -1,5 +1,5 @@
 .mainWrapper {
   display: grid;
-  grid-template-columns:min-content 1fr;
+  grid-template-columns: min-content 1fr;
   grid-template-rows: 56px auto;
 }

@@ -3,7 +3,6 @@
   grid-template-columns: 50px 50px 120px;
   align-items: center;
   justify-items: center;
-
 }
 
 .iconButton {
@@ -13,7 +12,6 @@
   font-size: 18px;
   color: var(--icnClr);
 }
-
 
 .headerSecondRow {
   grid-column: 2 / 4;

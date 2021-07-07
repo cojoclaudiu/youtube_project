@@ -3,9 +3,7 @@ import '../index.css';
 import React from 'react';
 
 // Project Icons
-import {
-  MdFeedback, MdHelp, MdFlag, MdSettings,
-} from 'react-icons/md';
+import { MdFeedback, MdHelp, MdFlag, MdSettings } from 'react-icons/md';
 
 // sb = sidebar box + number of the box
 

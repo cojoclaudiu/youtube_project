@@ -19,9 +19,7 @@ const sb6Data = [
 
 const SidebarBox6 = () => (
   <div className="sb">
-    <h3 className={styles.headingTitle}>
-      More from YouTube
-    </h3>
+    <h3 className={styles.headingTitle}>More from YouTube</h3>
     {sb6Data.map((link) => (
       <div key={link.id} className="sbContainer">
         <div className="sbIcon">{link.icon}</div>

@@ -8,7 +8,11 @@ const Navigation = () => {
 
   return (
     <nav className={styles.navigation}>
-      <button type="button" className={styles.navigationButton} onClick={() => setSidebar(!sidebar)}>
+      <button
+        type="button"
+        className={styles.navigationButton}
+        onClick={() => setSidebar(!sidebar)}
+      >
         <BiMenu />
       </button>
     </nav>

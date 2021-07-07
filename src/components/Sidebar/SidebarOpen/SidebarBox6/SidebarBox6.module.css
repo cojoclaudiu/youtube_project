@@ -1,0 +1,6 @@
+.headingTitle {
+  font-size: 14px;
+  color: var(--colorMediumDark);
+  text-transform: uppercase;
+  padding: var(--paddingM) var(--paddingXL) var(--paddingS) var(--paddingXL);
+}

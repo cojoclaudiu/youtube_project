@@ -1,0 +1,25 @@
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  padding: var(--paddingM) var(--paddingXL);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--colorMediumDark);
+}
+
+.footerRow1,
+.footerRow2 {
+  display: inline-flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  padding: var(--paddingS) 0;
+  /* justify-content: space-between; */
+
+  gap: 0 10px;
+}
+
+.footerCopyright {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--colorLightText);
+}

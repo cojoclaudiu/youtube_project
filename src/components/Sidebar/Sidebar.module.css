@@ -4,4 +4,6 @@
   grid-column: 1/2;
   height: calc(100vh - var(--headerHeight));
   margin-top: 10px;
+  overflow: scroll;
+  scrollbar-color: #CBCBCB transparent;
 }

@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Categories from './components/Categories/Categories';
 import Sidebar from './components/Sidebar/Sidebar';
 import { SidebarProvider } from './context/SidebarContext';
+import HomePage from './components/HomePage/HomePage';
 
 const App = () => (
   <SidebarProvider>
@@ -12,6 +13,7 @@ const App = () => (
       <Header />
       <Categories />
       <Sidebar />
+      <HomePage />
     </div>
   </SidebarProvider>
 );

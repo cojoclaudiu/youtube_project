@@ -1,8 +1,6 @@
 .videosContainer {
   display: grid;
-  /* max-width: 75%; */
   grid-template-columns: repeat(6, 360px);
-  /* grid-template-rows: auto; */
   gap: 20px 15px;
 }
 

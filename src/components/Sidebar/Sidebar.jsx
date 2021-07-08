@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
+import { SidebarContext } from 'context/SidebarContext';
 import styles from './Sidebar.module.css';
-import { SidebarContext } from '../../context/SidebarContext';
 import SidebarOpen from './SidebarOpen/SidebarOpen';
 import SidebarClosed from './SidebarClosed/SidebarClosed';
 

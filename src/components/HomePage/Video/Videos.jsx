@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Videos.module.css';
 import youtube from '../../../api/youtube';
+import styles from './Videos.module.css';
 
 const Videos = () => {
   const [videos, setVideos] = useState([]);
@@ -16,40 +16,37 @@ const Videos = () => {
 
   const durationStamp = (duration) => {
     const durationArray = duration.match(/\d+/g).map(Number);
-    let timeStamp = null;
 
     if (durationArray.length === 1) {
       const [sec] = durationArray;
       if (sec <= 9) {
-        timeStamp = `0:0${sec}`;
-      } else {
-        timeStamp = `0:${sec}`;
+        return `0:0${sec}`;
       }
+      return `0:${sec}`;
     }
 
     if (durationArray.length === 2) {
       const [min, sec] = durationArray;
       if (sec <= 9) {
-        timeStamp = `${min}:0${sec}`;
-      } else {
-        timeStamp = `${min}:${sec}`;
+        return `${min}:0${sec}`;
       }
+      return `${min}:${sec}`;
     }
 
     if (durationArray.length === 3) {
       const [hour, min, sec] = durationArray;
       if (min <= 9 && sec <= 9) {
-        timeStamp = `${hour}:0${min}:0${sec}`;
-      } else if (min <= 9 && sec >= 9) {
-        timeStamp = `${hour}:0${min}:${sec}`;
-      } else if (min >= 9 && sec <= 9) {
-        timeStamp = `${hour}:${min}:0${sec}`;
-      } else {
-        timeStamp = `${hour}:${min}:${sec}`;
+        return `${hour}:0${min}:0${sec}`;
       }
+      if (min <= 9 && sec >= 9) {
+        return `${hour}:0${min}:${sec}`;
+      }
+      if (min >= 9 && sec <= 9) {
+        return `${hour}:${min}:0${sec}`;
+      }
+      return `${hour}:${min}:${sec}`;
     }
-
-    return `${timeStamp}`;
+    return `n/a`;
   };
 
   return (

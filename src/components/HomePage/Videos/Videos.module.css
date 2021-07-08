@@ -1,7 +1,7 @@
 .videosContainer {
   display: grid;
-  max-width: 75%;
-  grid-template-columns: repeat(6, 1fr);
+  /* max-width: 75%; */
+  grid-template-columns: repeat(6, 360px);
   /* grid-template-rows: auto; */
   gap: 20px 15px;
 }
@@ -9,6 +9,8 @@
 .videoContainer {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
+
 }
 
 .thumbnailContainer {
@@ -18,6 +20,9 @@
 
 .thumbnailImage {
   width: 100%;
+  height: 202px;
+  object-fit: cover;
+
 }
 
 .timeStamp {

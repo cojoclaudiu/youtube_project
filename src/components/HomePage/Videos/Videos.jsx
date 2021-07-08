@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './Videos.module.css';
 import youtube from '../../../api/youtube';
 
-
 const Videos = () => {
   const [videos, setVideos] = useState([]);
 
@@ -60,12 +59,12 @@ const Videos = () => {
           <div className={styles.thumbnailContainer}>
             <img
               className={styles.thumbnailImage}
-              src={video.snippet.thumbnails.medium.url}
+              src={video.snippet.thumbnails.high.url}
               alt={video.snippet.title}
             />
             <div className={styles.timeStamp}>{durationStamp(video.contentDetails.duration)}</div>
           </div>
-
+          {console.log(video.snippet.thumbnails)}
           <div className={styles.videoDetails}>
             <h3 className={styles.videoTitle}>{video.snippet.title}</h3>
           </div>

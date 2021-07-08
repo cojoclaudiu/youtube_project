@@ -2,6 +2,14 @@
   display: grid;
   max-width: 75%;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: fit-content(40%) fit-content(40%);
+  grid-template-rows: auto;
   gap: 20px 15px;
+}
+
+.videoTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }

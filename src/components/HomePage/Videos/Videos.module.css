@@ -1,0 +1,7 @@
+.videosContainer {
+  display: grid;
+  max-width: 75%;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: fit-content(40%) fit-content(40%);
+  gap: 20px 15px;
+}

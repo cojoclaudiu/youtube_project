@@ -5,7 +5,7 @@
 
   display: flex;
   width: fit-content;
-
+  position: sticky;
   height: calc(100vh - var(--headerHeight));
   padding-top: 10px;
 }

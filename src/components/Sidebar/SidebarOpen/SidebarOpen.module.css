@@ -2,6 +2,6 @@
   font-size: 14px;
   width: 250px;
 
-  overflow: scroll;
+  overflow-x: scroll;
   scrollbar-color: #cbcbcb transparent;
 }

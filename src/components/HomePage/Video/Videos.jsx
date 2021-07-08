@@ -64,7 +64,6 @@ const Videos = () => {
             />
             <div className={styles.timeStamp}>{durationStamp(video.contentDetails.duration)}</div>
           </div>
-          {console.log(video.snippet.thumbnails)}
           <div className={styles.videoDetails}>
             <h3 className={styles.videoTitle}>{video.snippet.title}</h3>
           </div>

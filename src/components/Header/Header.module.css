@@ -3,6 +3,7 @@
   grid-column: 1/ -1;
   grid-row: 1/2;
   display: grid;
+  position: sticky;
   grid-template-columns: 70px 1fr;
   align-items: center;
   height: var(--headerHeight);

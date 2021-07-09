@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { youtubeVideo, relatedVideos } from 'api/youtube';
+import {viewsFormat, statsFormat} from 'helpers/formatCounts';
 import styles from './VideoPage.module.css';
 
 const VideoPage = () => {
@@ -51,9 +52,9 @@ const VideoPage = () => {
         frameBorder="0"
       />
       <div>{info.title}</div>
-      <div>Like: {info.likes}</div>
-      <div>Dislike: {info.dislikes}</div>
-      <div>Views: {info.views}</div>
+      <div>Like: {statsFormat(info.likes)}</div>
+      <div>Dislike: {statsFormat(info.dislikes)}</div>
+      <div>Views: {viewsFormat(info.views)}</div>
 
       <div className={styles.sidebarRelated}>
         {related.map((video) => (

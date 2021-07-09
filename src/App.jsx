@@ -8,7 +8,6 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import HomePage from 'components/HomePage/HomePage';
 import VideoPage from 'components/VideoPage/VideoPage';
 import { SidebarProvider } from 'context/SidebarContext';
-import { LinkProvider } from 'context/LinkContext';
 
 const App = () => (
   <div className="mainWrapper">
@@ -30,9 +29,7 @@ const App = () => (
             <Header />
             <Sidebar />
           </SidebarProvider>
-          <LinkProvider>
-            <VideoPage />
-          </LinkProvider>
+          <VideoPage />
         </Route>
       </Switch>
     </Router>

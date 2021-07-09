@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { youtubeVideo } from 'api/youtube';
+import { youtubeVideo, relatedVideos } from 'api/youtube';
 import styles from './VideoPage.module.css';
 
 const VideoPage = () => {
@@ -11,6 +11,8 @@ const VideoPage = () => {
     dislikes: 'Dislikes Loading...',
     views: 'Views Loading...',
   });
+
+  const [related, setRelated] = useState([]);
 
   useEffect(() => {
     async function videoData() {
@@ -24,6 +26,15 @@ const VideoPage = () => {
     }
 
     videoData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    async function getRelatedVideos() {
+      const request = await relatedVideos(videoId).get(``);
+      setRelated(request.data.items);
+    }
+    getRelatedVideos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -42,6 +53,16 @@ const VideoPage = () => {
       <div>Like: {info.likes}</div>
       <div>Dislike: {info.dislikes}</div>
       <div>Views: {info.views}</div>
+
+      <div className={styles.sidebarRelated}>
+        {related.map((video) => (
+          <div key={video.id} className={styles.videoContainer}>
+            <div className={styles.videoThumbnail}>
+              <img alt={video.snippet.title} src={video.snippet.thumbnails.medium.url} />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

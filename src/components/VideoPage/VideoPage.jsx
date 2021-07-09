@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { youtubeVideo, relatedVideos } from 'api/youtube';
 import styles from './VideoPage.module.css';
 
@@ -33,8 +33,8 @@ const VideoPage = () => {
     async function getRelatedVideos() {
       const request = await relatedVideos(videoId).get(``);
       setRelated(request.data.items);
-      // console.log(related);
     }
+    // console.log(related[0].id.videoId);
     getRelatedVideos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -57,13 +57,15 @@ const VideoPage = () => {
 
       <div className={styles.sidebarRelated}>
         {related.map((video) => (
-          <div key={video.id} className={styles.videoContainer}>
-            <div className={styles.videoThumbnail}>
-              {video.snippet && (
-                <img alt={video.snippet.id} src={video.snippet.thumbnails.medium.url} />
-              )}
+          <Link to={`/watch?v=${video.id.videoId && video.id.videoId}`}>
+            <div key={video.id} className={styles.videoContainer}>
+              <div className={styles.videoThumbnail}>
+                {video.snippet && (
+                  <img alt={video.snippet.id} src={video.snippet.thumbnails.medium.url} />
+                )}
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

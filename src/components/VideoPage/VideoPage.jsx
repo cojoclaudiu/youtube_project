@@ -33,6 +33,7 @@ const VideoPage = () => {
     async function getRelatedVideos() {
       const request = await relatedVideos(videoId).get(``);
       setRelated(request.data.items);
+      // console.log(related);
     }
     getRelatedVideos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -58,7 +59,9 @@ const VideoPage = () => {
         {related.map((video) => (
           <div key={video.id} className={styles.videoContainer}>
             <div className={styles.videoThumbnail}>
-              <img alt={video.snippet.title} src={video.snippet.thumbnails.medium.url} />
+              {video.snippet && (
+                <img alt={video.snippet.id} src={video.snippet.thumbnails.medium.url} />
+              )}
             </div>
           </div>
         ))}

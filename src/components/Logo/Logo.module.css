@@ -4,5 +4,6 @@
   cursor: pointer;
 }
 .headerContainerLogo svg {
+  align-items: center;
   max-height: 21px;
 }

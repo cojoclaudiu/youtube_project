@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Logo.module.css';
 
 const Logo = () => (
-  <div className={styles.headerContainerLogo}>
+  <Link to="/" className={styles.headerContainerLogo}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -26,7 +27,7 @@ const Logo = () => (
       </g>
       <use xlinkHref="#prefix__a" x={78.9} />
     </svg>
-  </div>
+  </Link>
 );
 
 export default Logo;

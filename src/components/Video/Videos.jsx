@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { LinkContext } from 'context/LinkContext';
 import youtube from 'api/youtube';
 import durationStamp from 'helpers/durationStamp';
 import styles from './Videos.module.css';
 
 const Videos = () => {
+  const { setLink } = useContext(LinkContext);
   const [videos, setVideos] = useState([]);
-  const [, setLink] = useState('/');
 
   useEffect(() => {
     async function ytData() {
@@ -16,18 +17,16 @@ const Videos = () => {
     ytData();
   }, []);
 
-
-  
   const handleId = (video) => setLink(video.id);
 
   return (
     <div className={styles.videosContainer}>
       {videos.map((video) => (
         <div
+          key={video.id}
           className={styles.videoContainer}
           tabIndex={0}
           role="button"
-          key={video.id}
           onClick={() => handleId(video)}
           onKeyDown={handleId}
         >

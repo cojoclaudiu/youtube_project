@@ -1,10 +1,13 @@
 import React from 'react';
+import Videos from 'components/Video/Videos';
+import { LinkProvider } from 'context/LinkContext';
 import styles from './HomePage.module.css';
-import Videos from '../Video/Videos';
 
 const HomePage = () => (
   <div className={styles.homePageContainer}>
-    <Videos />
+    <LinkProvider>
+      <Videos />
+    </LinkProvider>
   </div>
 );
 

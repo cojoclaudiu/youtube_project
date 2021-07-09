@@ -57,8 +57,8 @@ const VideoPage = () => {
 
       <div className={styles.sidebarRelated}>
         {related.map((video) => (
-          <Link to={`/watch?v=${video.id.videoId && video.id.videoId}`}>
-            <div key={video.id} className={styles.videoContainer}>
+          <Link key={video.id} to={`/watch?v=${video.id.videoId}`}>
+            <div className={styles.videoContainer}>
               <div className={styles.videoThumbnail}>
                 {video.snippet && (
                   <img alt={video.snippet.id} src={video.snippet.thumbnails.medium.url} />

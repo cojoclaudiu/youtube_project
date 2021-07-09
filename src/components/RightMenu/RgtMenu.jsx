@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { IoAppsSharp } from 'react-icons/io5';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import SignInButton from 'components/Buttons/SignIn/SignInButton';
 import styles from './RgtMenu.module.css';
-import SignInButton from '../../Buttons/SignIn/SignInButton';
 
 const RgtMenu = () => (
   <div className={styles.menuRgt}>

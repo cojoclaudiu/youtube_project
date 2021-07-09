@@ -1,10 +1,9 @@
 import React from 'react';
+import RgtMenu from 'components/RightMenu/RgtMenu';
+import SearchHeader from 'components/Search/SearchHeader';
+import Navigation from 'components/Navigation/Navigation';
+import Logo from 'components/Logo/Logo';
 import styles from './Header.module.css';
-
-import RgtMenu from './RightMenu/RgtMenu';
-import SearchHeader from './Search/SearchHeader';
-import Logo from './Logo/Logo';
-import Navigation from './Navigation/Navigation';
 
 const Header = () => (
   <header className={styles.headerContainer}>

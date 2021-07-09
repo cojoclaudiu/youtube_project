@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { BiMenu } from 'react-icons/bi';
+import { SidebarContext } from 'context/SidebarContext';
 import styles from './Navigation.module.css';
-import { SidebarContext } from '../../../context/SidebarContext';
 
 const Navigation = () => {
   const { sidebar, setSidebar } = useContext(SidebarContext);

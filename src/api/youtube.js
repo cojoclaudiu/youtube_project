@@ -27,8 +27,6 @@ export const youtube = axios.create({
   baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${getRandomAPI()}`,
 });
 
-
-
 export const youtubeVideo = (videoId) =>
   axios.create({
     baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${getRandomAPI()}`,
@@ -37,4 +35,14 @@ export const youtubeVideo = (videoId) =>
 export const relatedVideos = (videoId) =>
   axios.create({
     baseURL: `https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&maxResults=10&type=video&key=${getRandomAPI()}`,
+  });
+
+export const searchVideo = (keyword) =>
+  axios.create({
+    baseURL: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${keyword}&key=${getRandomAPI()}`,
+  });
+
+export const getVideoDetails = (videoId) =>
+  axios.create({
+    baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${getRandomAPI()}`,
   });

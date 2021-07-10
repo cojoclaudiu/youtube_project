@@ -7,6 +7,7 @@ import Categories from 'components/Categories/Categories';
 import Sidebar from 'components/Sidebar/Sidebar';
 import HomePage from 'components/HomePage/HomePage';
 import VideoPage from 'components/VideoPage/VideoPage';
+import SearchFeed from 'components/SearchFeed/SearchFeed';
 import { SidebarProvider } from 'context/SidebarContext';
 
 const App = () => (
@@ -30,6 +31,15 @@ const App = () => (
             <Sidebar />
           </SidebarProvider>
           <VideoPage />
+        </Route>
+
+        {/* SEARCH FEED */}
+        <Route path="/results" exact>
+          <SidebarProvider>
+            <Header />
+            <Sidebar />
+            <SearchFeed />
+          </SidebarProvider>
         </Route>
       </Switch>
     </Router>

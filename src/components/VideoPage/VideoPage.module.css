@@ -6,4 +6,15 @@
   justify-content: center;
   gap: 0 20px;
   margin-top: 20px;
+
+  margin-top: 20px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.homePageContainer::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
 }

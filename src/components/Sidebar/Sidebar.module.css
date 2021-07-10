@@ -4,7 +4,7 @@
   grid-column: 1/2;
 
   display: flex;
-  width: fit-content;
+  width: max-content;
   position: sticky;
   height: calc(100vh - var(--headerHeight));
   padding-top: 10px;

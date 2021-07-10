@@ -14,7 +14,7 @@ const RelatedVideos = ({ addId }) => {
     // console.log(related[0].id.videoId);
     getRelatedVideos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [addId]);
 
   return (
     <div className={styles.sidebarRelated}>

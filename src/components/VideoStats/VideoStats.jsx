@@ -24,7 +24,7 @@ const VideoStats = ({ videoId }) => {
     async function videoData() {
       const response = await youtubeVideo(videoId).get(``);
       const getData = await response.data;
-      console.log(getData);
+      // console.log(getData);
       setInfo({
         id: videoId,
         title: getData.items[0].snippet.title,

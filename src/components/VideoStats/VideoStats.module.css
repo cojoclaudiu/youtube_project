@@ -72,7 +72,7 @@
 
 /* LIKE OR DISLIKE CLASS */
 .clicked {
-  color: blue;
+  color: var(--blue);
 }
 
 /* TOOLTIP STYLES */

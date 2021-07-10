@@ -36,7 +36,8 @@ const VideoStats = ({ videoId }) => {
 
     videoData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [videoId]);
+
 
   const handleLike = () => setStatus({ active: !status.active, like: true, dislike: false });
 

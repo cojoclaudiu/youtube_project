@@ -9,6 +9,8 @@ import styles from './VideoPage.module.css';
 const VideoPage = () => {
   const videoId = useLocation().search.replace('?v=', '');
 
+
+
   return (
     <div className={styles.playerPage}>
       <div className={styles.videoContainer}>

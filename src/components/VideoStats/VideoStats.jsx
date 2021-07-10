@@ -38,6 +38,12 @@ const VideoStats = ({ videoId }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
 
+  useEffect(() => {
+    function upDateTitle() {
+      document.title = info.title;
+    }
+    upDateTitle();
+  });
 
   const handleLike = () => setStatus({ active: !status.active, like: true, dislike: false });
 

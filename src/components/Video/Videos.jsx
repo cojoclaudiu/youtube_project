@@ -13,6 +13,8 @@ const Videos = () => {
       setVideos(request.data.items);
     }
 
+    document.title = 'Homepage - Trending';
+
     ytData();
   }, []);
 

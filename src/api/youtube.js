@@ -21,7 +21,7 @@ const getRandomAPI = () => {
   return APIS[Math.floor(Math.random(APIS.length) * 10)];
 };
 
-console.log(getRandomAPI());
+// console.log(getRandomAPI());
 
 export const youtube = axios.create({
   baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${getRandomAPI()}`,

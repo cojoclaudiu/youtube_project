@@ -1,8 +1,9 @@
-.playerContainer {
-  margin: auto;
-}
-
-.sidebarRelated {
+.playerPage {
+  grid-row: 2/4;
+  grid-column: 2/3;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: 1280px 250px;
+  justify-content: center;
+  gap: 0 20px;
+  margin-top: 20px;
 }

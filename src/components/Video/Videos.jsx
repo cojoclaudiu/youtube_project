@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {youtube}  from 'api/youtube';
+import { youtube } from 'api/youtube';
 import durationStamp from 'helpers/durationStamp';
 import styles from './Videos.module.css';
 

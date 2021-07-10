@@ -1,74 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { youtubeVideo, relatedVideos } from 'api/youtube';
-import {viewsFormat, statsFormat} from 'helpers/formatCounts';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
+import RelatedVideos from 'components/RelatedVideos/RelatedVideos';
+import VideoStats from 'components/VideoStats/VideoStats';
+
 import styles from './VideoPage.module.css';
 
 const VideoPage = () => {
   const videoId = useLocation().search.replace('?v=', '');
-  const [info, setInfo] = useState({
-    title: 'Title Loading...',
-    likes: 'Likes Loading...',
-    dislikes: 'Dislikes Loading...',
-    views: 'Views Loading...',
-  });
-
-  const [related, setRelated] = useState([]);
-
-  useEffect(() => {
-    async function videoData() {
-      const request = await youtubeVideo(videoId).get(``);
-      setInfo({
-        title: request.data.items[0].snippet.title,
-        likes: request.data.items[0].statistics.likeCount,
-        dislikes: request.data.items[0].statistics.dislikeCount,
-        views: request.data.items[0].statistics.viewCount,
-      });
-    }
-
-    videoData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    async function getRelatedVideos() {
-      const request = await relatedVideos(videoId).get(``);
-      setRelated(request.data.items);
-    }
-    // console.log(related[0].id.videoId);
-    getRelatedVideos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
-    <div className={styles.playerContainer}>
-      <iframe
-        title={videoId}
-        id="ytplayer"
-        type="text/html"
-        width="1280"
-        height="720"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        frameBorder="0"
-      />
-      <div>{info.title}</div>
-      <div>Like: {statsFormat(info.likes)}</div>
-      <div>Dislike: {statsFormat(info.dislikes)}</div>
-      <div>Views: {viewsFormat(info.views)}</div>
-
-      <div className={styles.sidebarRelated}>
-        {related.map((video) => (
-          <Link key={video.id} to={`/watch?v=${video.id.videoId}`}>
-            <div className={styles.videoContainer}>
-              <div className={styles.videoThumbnail}>
-                {video.snippet && (
-                  <img alt={video.snippet.id} src={video.snippet.thumbnails.medium.url} />
-                )}
-              </div>
-            </div>
-          </Link>
-        ))}
+    <div className={styles.playerPage}>
+      <div className={styles.videoContainer}>
+        <VideoPlayer id={videoId} />
+        <VideoStats videoId={videoId} />
       </div>
+      <RelatedVideos addId={videoId} />
     </div>
   );
 };

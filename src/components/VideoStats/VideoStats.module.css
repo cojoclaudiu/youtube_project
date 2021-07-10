@@ -1,0 +1,115 @@
+.videoStats {
+  display: grid;
+  grid-template-rows: repeat(2, max-content);
+  border-bottom: 1px solid var(--borderClr);
+}
+
+.videoStatsRow2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  color: var(--colorLightText);
+  padding-bottom: 5px;
+}
+
+.videoStatsRow2 div:not(:first-child) {
+  cursor: pointer;
+}
+
+.videoTitle {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.videoViews {
+  font-size: 14px;
+}
+
+.likeContainer {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.videoLike {
+  padding-right: 20px;
+}
+
+.videoLike,
+.videoDislike,
+.videoShare,
+.videoSave,
+.videoMore {
+  display: flex;
+  align-items: center;
+}
+
+.videoLike svg,
+.videoDislike svg {
+  font-size: 22px;
+  margin-right: 5px;
+}
+.videoShare svg {
+  font-size: 22px;
+}
+.videoSave svg {
+  font-size: 30px;
+}
+.videoMore svg {
+  font-size: 30px;
+}
+.videoMore:hover {
+  color: var(--iconDark);
+}
+
+.videoShare h3,
+.videoSave h3 {
+  padding-left: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* LIKE OR DISLIKE CLASS */
+.clicked {
+  color: blue;
+}
+
+/* TOOLTIP STYLES */
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-flex;
+  font-size: 12px;
+  align-items: center;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  left: 50px;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+}

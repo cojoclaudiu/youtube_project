@@ -1,3 +1,3 @@
 [context.production]
 
-environment = { REACT_APP_YT_API_KEY="AIzaSyBw2ubQebXuiC7bzXRP-J2g9ZVjqB05uWs" }
+environment = { REACT_APP_YT_API_KEY="AIzaSyDMbBScdqophxy9B2bfOBDVMkPkSnR82QI" }

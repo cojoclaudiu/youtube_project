@@ -18,6 +18,7 @@ const SearchFeed = () => {
       const getData = await response.data.items;
       setResults(getData);
     }
+    document.title = searchQuery;
     getSearchData(searchQuery);
   }, [searchQuery]);
 

@@ -33,7 +33,7 @@ const RelatedVideos = ({ addId }) => {
     getVideoData();
   }, [related]);
 
-  console.log(videoDuration);
+  // console.log(videoDuration);
 
   return (
     <div className={styles.sidebarRelated}>

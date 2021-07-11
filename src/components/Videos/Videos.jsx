@@ -36,7 +36,7 @@ const Videos = () => {
     channelId();
   }, [videos]);
 
-  console.log(videos);
+  // console.log(videos);
 
   return (
     <div className={styles.videosContainer}>

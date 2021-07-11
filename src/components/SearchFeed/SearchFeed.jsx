@@ -18,8 +18,6 @@ const SearchFeed = () => {
     getSearchData(searchQuery);
   }, [searchQuery]);
 
-
-
   return (
     <div className={styles.feedContainer}>
       {results.map((item) => (

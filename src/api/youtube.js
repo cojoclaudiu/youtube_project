@@ -41,8 +41,3 @@ export const searchVideo = (keyword) =>
   axios.create({
     baseURL: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${keyword}&key=${getRandomAPI()}`,
   });
-
-export const getVideoDetails = (videoId) =>
-  axios.create({
-    baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${getRandomAPI()}`,
-  });

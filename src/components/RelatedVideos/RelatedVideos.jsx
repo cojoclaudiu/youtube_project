@@ -6,13 +6,6 @@ import styles from './RelatedVideos.module.css';
 const RelatedVideos = ({ addId }) => {
   const [related, setRelated] = useState([]);
 
-  // const [relatedDetails, setRelatedDetails] = useState({
-  //   id: "",
-  //   title: "",
-  //   duration: ""
-
-  // })
-
   useEffect(() => {
     async function getRelatedVideos() {
       const response = await relatedVideos(addId).get();
@@ -25,15 +18,10 @@ const RelatedVideos = ({ addId }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addId]);
 
-  // useEffect(() => {
-  //   async function videoDetails(id) {
-  //     const response = await getVideoDetails(id).get();
-  //     const getData = await response.data.items;
-  //     setContentDetails(getData.items.contentDetails);
-  //   }
-  //   videoDetails();
-  // }, [addId]);
-  // console.log(contentDetails);
+  // const duration = async (id) => {
+  //   const response = await youtubeVideo(id).get(``);
+  //   return response.data.items[0].contentDetails.duration;
+  // };
 
   return (
     <div className={styles.sidebarRelated}>
@@ -43,7 +31,7 @@ const RelatedVideos = ({ addId }) => {
             <div className={styles.videoThumbnail}>
               <img alt={video.snippet.id} src={video.snippet.thumbnails.medium.url} />
               <h3>{video.snippet.title}</h3>
-              <div>time</div>
+              <div>Duration: </div>
             </div>
           </div>
         </Link>

@@ -10,6 +10,8 @@ const VideoPlayer = ({ id }) => {
       autoplay: 1,
       modestbranding: 1,
       rel: 0,
+      showinfo: 0,
+      ecver: 2,
     },
   };
 

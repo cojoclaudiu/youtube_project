@@ -9,7 +9,7 @@ const Videos = () => {
 
   useEffect(() => {
     async function ytData() {
-      const request = await youtube.get(``);
+      const request = await youtube.get();
       setVideos(request.data.items);
     }
 

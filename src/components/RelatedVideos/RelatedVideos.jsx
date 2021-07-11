@@ -35,7 +35,19 @@ const RelatedVideos = ({ addId }) => {
     getVideoData();
   }, [related]);
 
-  // console.log(videoDuration);
+  useEffect(() => {
+    async function getViews() {
+      const arr = related.map(async (video) => {
+        const vId = video.id.videoId;
+        const response = await youtubeVideo(vId).get();
+        return statsFormat(response.data.items[0].statistics.viewCount);
+      });
+      const resolved = await Promise.all(arr);
+      setViews(...[resolved]);
+      return arr;
+    }
+    getViews();
+  }, [related]);
 
   return (
     <div className={styles.sidebarRelated}>

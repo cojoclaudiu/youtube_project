@@ -5,7 +5,10 @@ import { searchVideo } from 'api/youtube';
 import styles from './SearchFeed.module.css';
 
 const SearchFeed = () => {
-  const searchQuery = useLocation().search.replace('?category_query=', '').replace(/\+/g, ' ');
+  const searchQuery = useLocation()
+    .search.replace('?category_query=', '')
+    .replace('?search=', '')
+    .replace(/\+/g, ' ');
 
   const [results, setResults] = useState([]);
 

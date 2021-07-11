@@ -1,5 +1,5 @@
 import React from 'react';
-import Videos from 'components/Video/Videos';
+import Videos from 'components/Videos/Videos';
 import styles from './HomePage.module.css';
 
 const HomePage = () => (

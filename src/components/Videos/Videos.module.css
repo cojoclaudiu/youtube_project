@@ -40,10 +40,41 @@
   border-radius: 2px;
 }
 
+.videoDetails {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: repeat(2, max-content);
+  padding-top: 15px;
+}
+
+.titlesContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
 .videoTitle {
+  grid-column: 2/-1;
+  grid-row: 1/2;
+  font-size: 15px;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.channelTitle,
+.views {
+  font-size: 14px;
+  color: var(--colorLightText);
+}
+
+.avatarImg {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
 }

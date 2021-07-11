@@ -18,10 +18,7 @@ const RelatedVideos = ({ addId }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addId]);
 
-  // const duration = async (id) => {
-  //   const response = await youtubeVideo(id).get(``);
-  //   return response.data.items[0].contentDetails.duration;
-  // };
+
 
   return (
     <div className={styles.sidebarRelated}>

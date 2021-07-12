@@ -23,4 +23,8 @@
   --paddingXL: 24px;
 
   --headerHeight: 56px;
+
+  /* GRID SIZES */
+  --sidebar: 240px;
+  --rowHeight: 56px;
 }

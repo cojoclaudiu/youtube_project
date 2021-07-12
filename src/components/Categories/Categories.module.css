@@ -1,4 +1,4 @@
-.categoriesRow {
+.categoriesContainer {
   background-color: white;
   grid-row: 2/3;
   grid-column: 2/-1;
@@ -8,10 +8,20 @@
   font-size: 14px;
   height: var(--headerHeight);
   align-items: center;
-  justify-content: center;
-
   border-top: 1px solid var(--lightBorder);
   border-bottom: 1px solid var(--lightBorder);
+}
+
+.row {
+  width: auto;
+  padding: 0 20px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 2340px) {
+  .categoriesContainer {
+    overflow-x: hidden;
+  }
 }
 
 .categoryButton {

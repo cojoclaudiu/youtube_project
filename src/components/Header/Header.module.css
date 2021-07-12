@@ -4,7 +4,7 @@
   grid-row: 1/2;
   display: grid;
   position: sticky;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 70px calc(100vw - 70px);
   align-items: center;
   height: var(--headerHeight);
 }
@@ -16,5 +16,5 @@
 .headerMain {
   grid-column: 2/-1;
   display: grid;
-  grid-template-columns: 250px 1fr 10%;
+  grid-template-columns: max-content 1fr auto;
 }

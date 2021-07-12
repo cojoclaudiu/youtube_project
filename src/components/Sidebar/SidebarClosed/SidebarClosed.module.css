@@ -1,5 +1,5 @@
 .sidebarClosed {
-  width: max-content;
+  position: sticky;
 }
 
 .itemContainer {

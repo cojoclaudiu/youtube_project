@@ -1,5 +1,5 @@
 .mainWrapper {
   display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: repeat(2, 56px) calc(100vh - (56px * 2));
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(2, var(--rowHeight)) calc(100vh - (var(--rowHeight) * 2));
 }

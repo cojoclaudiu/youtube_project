@@ -42,7 +42,7 @@ const getRandomAPI = () => {
 // console.log(getRandomAPI());
 
 export const youtube = axios.create({
-  baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=10&regionCode=US&key=${getRandomAPI()}`,
+  baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${getRandomAPI()}`,
 });
 
 export const youtubeVideo = (videoId) =>
@@ -52,7 +52,7 @@ export const youtubeVideo = (videoId) =>
 
 export const relatedVideos = (videoId) =>
   axios.create({
-    baseURL: `https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&maxResults=10&type=video&key=${getRandomAPI()}`,
+    baseURL: `https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&maxResults=20&type=video&key=${getRandomAPI()}`,
   });
 
 export const searchVideo = (keyword) =>

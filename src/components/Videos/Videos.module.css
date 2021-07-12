@@ -40,7 +40,6 @@
   }
 }
 
-
 @media only screen and (max-width: 1620px) {
   .videosContainer {
     grid-template-columns: repeat(3, minmax(150px, 360px));

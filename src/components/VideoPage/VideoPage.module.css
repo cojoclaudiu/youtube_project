@@ -2,7 +2,7 @@
   grid-row: 2/4;
   grid-column: 2/3;
   display: grid;
-  grid-template-columns: 1280px 250px;
+  grid-template-columns: min-content 400px;
   justify-content: center;
   gap: 0 20px;
   margin-top: 20px;
@@ -13,8 +13,17 @@
   -ms-overflow-style: none;
 }
 
+@media only screen and (max-width: 1620px) {
+  .playerPage {
+    grid-template-columns: min-content;
+  }
+}
+
 .playerPage::-webkit-scrollbar {
   /* WebKit */
   width: 0;
   height: 0;
+}
+
+.videoContainer {
 }

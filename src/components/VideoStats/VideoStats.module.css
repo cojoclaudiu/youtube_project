@@ -20,6 +20,12 @@
   font-size: 2.2rem;
   font-weight: 500;
 }
+@media only screen and (max-width: 550px) {
+  .videoTitle {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+}
 
 .videoViews {
   font-size: 14px;
@@ -112,4 +118,12 @@
 
 .tooltip:hover .tooltiptext {
   opacity: 1;
+}
+
+@media only screen and (max-width: 650px) {
+  .videoStatsRow2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

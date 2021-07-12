@@ -1,8 +1,6 @@
 .sidebarRelated {
   display: flex;
   flex-direction: column;
-  width: 402px;
-  min-width: 300px;
 }
 
 .videoContainer {

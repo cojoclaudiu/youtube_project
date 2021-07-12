@@ -26,8 +26,12 @@ const SearchFeed = () => {
     <div className={styles.feedContainer}>
       {results.map((item) => (
         <Link key={item.snippet.title} to={`/watch?v=${item.id.videoId}`}>
-          <div className={styles.resultContainer}>
+          <div className={styles.videoContainer}>
             <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
+            <div>
+              <h2>{item.snippet.title}</h2>
+              <p>{item.snippet.description}</p>
+            </div>
           </div>
         </Link>
       ))}

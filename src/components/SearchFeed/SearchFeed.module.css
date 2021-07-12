@@ -1,19 +1,16 @@
 .feedContainer {
   grid-row: 3/4;
   grid-column: 2/3;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* max-height: 90vh; */
-  margin-top: 20px;
-
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  justify-self: center;
+  max-width: 855px;
 }
 
-.feedContainer ::-webkit-scrollbar {
-  /* WebKit */
-  width: 0;
-  height: 0;
+.videoContainer {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0 15px;
+  padding-bottom: 15px;
 }

@@ -6,8 +6,6 @@
   align-items: center;
   justify-self: center;
   margin-top: 20px;
-  width: calc(100vw - max-content);
-  /* background-color: yellow; */
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */

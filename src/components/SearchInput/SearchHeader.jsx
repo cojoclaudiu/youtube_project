@@ -29,7 +29,7 @@ const SearchHeader = () => {
           placeholder="Search"
           onChange={debouncedQueryChanged}
         />
-        <button type="button" className={styles.searchBtn}>
+        <button type="button" className={styles.searchBtn} onClick={onQuerySubmit}>
           <AiOutlineSearch />
         </button>
       </form>

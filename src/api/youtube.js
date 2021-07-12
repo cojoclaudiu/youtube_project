@@ -57,7 +57,7 @@ export const relatedVideos = (videoId) =>
 
 export const searchVideo = (keyword) =>
   axios.create({
-    baseURL: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${keyword}&key=${getRandomAPI()}`,
+    baseURL: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&key=${getRandomAPI()}`,
   });
 
 export const avatar = (id) =>

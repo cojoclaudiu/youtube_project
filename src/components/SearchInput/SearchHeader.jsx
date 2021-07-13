@@ -11,26 +11,28 @@ const SearchHeader = () => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [, setSelectedSuggestion] = useState('');
+  const [selectedSuggestion, setSelectedSuggestion] = useState('');
 
   // Prediction function
-  const onQueryChange = (e) => {
+  const onQueryChange = useCallback((e) => {
     setQuery(e.target.value);
+
     const onTypeSuggest = async () => {
       const response = await prediction(e.target.value);
       setSuggestions(response);
     };
     onTypeSuggest();
-  };
+  }, []);
 
   // Debounce for search input
-  const debouncedQueryChanged = useMemo(() => debounce(onQueryChange, 100), []);
+  const debouncedQueryChanged = useMemo(() => debounce(onQueryChange, 200), [onQueryChange]);
   useEffect(() => () => debouncedQueryChanged.cancel(), [debouncedQueryChanged]);
 
   // on Submit search input
   const onQuerySubmit = (e) => {
     e.preventDefault();
     history.push(`results?search=${query}`);
+    setQuery(selectedSuggestion);
   };
 
   // IF TRUE SHOW SUGGESTION CONTAINER
@@ -45,11 +47,11 @@ const SearchHeader = () => {
       history.push(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
       setShowSuggestions((prev) => !prev);
       setSelectedSuggestion(e.target.textContent);
-      setQuery('');
     },
 
     [history],
   );
+  console.log(query);
 
   return (
     <div className={styles.headerContainerSearch}>
@@ -62,7 +64,7 @@ const SearchHeader = () => {
             type="search"
             placeholder="Search"
             onChange={debouncedQueryChanged}
-            onClick={suggestionContainer}
+            onFocus={suggestionContainer}
           />
           <button type="button" className={styles.searchBtn} onClick={onQuerySubmit}>
             <AiOutlineSearch />
@@ -76,6 +78,7 @@ const SearchHeader = () => {
             {suggestions.length > 0 &&
               suggestions.map((item) => (
                 <div
+                  key={item}
                   role="button"
                   tabIndex={0}
                   className={styles.suggestionItem}

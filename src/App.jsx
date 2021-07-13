@@ -12,7 +12,7 @@ import SearchFeed from 'components/SearchFeed/SearchFeed';
 import { SidebarProvider } from 'context/SidebarContext';
 
 const App = () => {
-  const width = useWindowSize() > 400;
+  const width = useWindowSize();
 
   return (
     <div className="mainWrapper">
@@ -32,7 +32,7 @@ const App = () => {
           <Route path="/watch" exact>
             <SidebarProvider>
               <Header />
-              {width && <Sidebar />}
+              {width > 550 && <Sidebar />}
             </SidebarProvider>
             <VideoPage />
           </Route>
@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/results" exact>
             <SidebarProvider>
               <Header />
-              <Sidebar />
+              {width > 550 && <Sidebar />}
               <SearchFeed />
             </SidebarProvider>
           </Route>

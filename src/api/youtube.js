@@ -1,26 +1,31 @@
 import axios from 'axios';
 
 const getRandomAPI = () => {
-  const APIS2 = [
-    'AIzaSyDdkAbOjEYDztZTecp2axGJpZESbTbDqvI',
-    'AIzaSyCoxN07jN-ql-UzZ4iNMOS-pSD4pdgbaP4',
-    'AIzaSyBzCZnf2oPGfV60d7qDB1M7ieUkQ0htqNQ',
-    'AIzaSyCElG8PaM601lHGrC4M4vnvEwLGkGOI_Tk',
-    'AIzaSyCSSTDBu4ETz_wcdUXJIoGyQtYAgRIbcl8',
-    'AIzaSyCtEgzDTV650l8tV6z7qrXsaoTsACWkGbk',
-    'AIzaSyBt6KlmzJRWFwq1zuN2iZLpRxcIhyykJB4',
-    'AIzaSyA5usOhzLyxu9ERA7tkdG_mWH1NVo-jgqU',
-    'AIzaSyCUSFIq19agHlBXydVb8ZqGNQTX6opc3v4',
-    'AIzaSyBB7TFc0IXb7D6gohNSiFNzlrPg_IfJp-A',
-    'AIzaSyAoJWUEdc-wxWpmDctasr2XknnfotYnPXM',
-    'AIzaSyD6vtAcSbBzB_9LQOV2rj6MJlQZ9XfyHl0',
-    'AIzaSyCOggM89-dTxeCUYfv-KWezYld17jdEITA',
+  const APIsUSTD = [
+    'AIzaSyDFxK1zpsZJ2x_MmEUtiqUYuk6k8NPfLUM',
+    'AIzaSyBCuAiUJs55mQy4fl9ycACFTwrytY8qGcY',
+    'AIzaSyDkEjQrUUV8eXp5KNhuZRAAh0zktDdl5lE',
+    'AIzaSyB9vXmreuu8fhJWoB8hYlsQW4j7PdUsjdc',
+    'AIzaSyBNgl5w_NLUnAVU52K9qY5GMeVOnx7nHbE',
   ];
+  // const APIS2 = [
+  //   'AIzaSyDdkAbOjEYDztZTecp2axGJpZESbTbDqvI',
+  //   'AIzaSyCoxN07jN-ql-UzZ4iNMOS-pSD4pdgbaP4',
+  //   'AIzaSyBzCZnf2oPGfV60d7qDB1M7ieUkQ0htqNQ',
+  //   'AIzaSyCElG8PaM601lHGrC4M4vnvEwLGkGOI_Tk',
+  //   'AIzaSyCSSTDBu4ETz_wcdUXJIoGyQtYAgRIbcl8',
+  //   'AIzaSyCtEgzDTV650l8tV6z7qrXsaoTsACWkGbk',
+  //   'AIzaSyBt6KlmzJRWFwq1zuN2iZLpRxcIhyykJB4',
+  //   'AIzaSyA5usOhzLyxu9ERA7tkdG_mWH1NVo-jgqU',
+  //   'AIzaSyCUSFIq19agHlBXydVb8ZqGNQTX6opc3v4',
+  //   'AIzaSyBB7TFc0IXb7D6gohNSiFNzlrPg_IfJp-A',
+  //   'AIzaSyAoJWUEdc-wxWpmDctasr2XknnfotYnPXM',
+  //   'AIzaSyD6vtAcSbBzB_9LQOV2rj6MJlQZ9XfyHl0',
+  //   'AIzaSyCOggM89-dTxeCUYfv-KWezYld17jdEITA',
+  // ];
 
-  return APIS2[Math.floor(Math.random(APIS2.length) * 10)];
+  return APIsUSTD[Math.floor(Math.random(APIsUSTD.length) * APIsUSTD.length)];
 };
-
-// console.log(getRandomAPI());
 
 export const youtube = axios.create({
   baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${getRandomAPI()}`,

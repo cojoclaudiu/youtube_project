@@ -62,7 +62,7 @@
 .channelTitle,
 .views {
   font-size: 12px;
-  color: var(--colorLightText);
+  color: var(--colorMediumDark);
   letter-spacing: 1px;
   font-weight: lighter;
 }

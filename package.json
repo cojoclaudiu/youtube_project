@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "axios-jsonp": "^1.0.4",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",

@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  /* background-color: greenyellow; */
 }
+
 .searchForm {
   display: flex;
   align-items: center;
@@ -68,4 +68,36 @@
 
 .searchBtn:hover {
   filter: brightness(0.96);
+}
+.inputContainer {
+  position: relative;
+}
+.suggestionsContainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  height: max-content;
+  width: 100%;
+  background-color: white;
+
+  filter: drop-shadow(0.1rem 0.2rem 0.3rem rgba(0, 0, 0, 0.4));
+  border-radius: 0 0 3px 3px;
+  overflow-y: hidden;
+}
+.suggestionItem {
+  padding: 10px 20px;
+}
+
+.suggestionItem:hover {
+  background-color: var(--hoverColor);
+  cursor: pointer;
+}
+
+.placeholderItem {
+  padding: 10px 20px;
+}
+
+.displayContainer {
+  display: none;
 }

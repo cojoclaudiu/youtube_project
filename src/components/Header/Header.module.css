@@ -4,9 +4,10 @@
   grid-row: 1/2;
   display: grid;
   position: sticky;
-  grid-template-columns: 70px calc(100vw - 70px);
+  grid-template-columns: 70px calc(100% - 70px);
   align-items: center;
   height: var(--headerHeight);
+  z-index: 31;
 }
 
 .headerMenu {

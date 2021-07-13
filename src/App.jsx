@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/" exact>
             <SidebarProvider>
               <Header />
-              <Sidebar />
+              {width > 550 && <Sidebar />}
             </SidebarProvider>
             <Categories />
             <HomePage />

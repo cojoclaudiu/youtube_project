@@ -33,6 +33,7 @@ const SearchHeader = () => {
     e.preventDefault();
     history.push(`results?search=${query}`);
     setQuery(selectedSuggestion);
+    setShowSuggestions(false);
   };
 
   // IF TRUE SHOW SUGGESTION CONTAINER

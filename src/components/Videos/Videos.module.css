@@ -152,11 +152,21 @@
 
 @media only screen and (max-width: 470px) {
   .videosContainer {
-    grid-template-columns: minmax(150px, 250px);
+    grid-template-columns: minmax(150px, 350px);
   }
 
   .thumbnailContainer {
-    max-height: 140.63px;
+    max-height: 196.88px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .videosContainer {
+    grid-template-columns: minmax(150px, 310px);
+  }
+
+  .thumbnailContainer {
+    max-height: 174.38px;
   }
 }
 

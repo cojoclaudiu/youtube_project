@@ -51,7 +51,6 @@ const SearchHeader = () => {
 
     [history],
   );
-  console.log(query);
 
   return (
     <div className={styles.headerContainerSearch}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Sidebar, VideoPage } from 'components';
-import useWindowSize from 'hooks/useWindowSize';
+import useWindowSize from 'Hooks/useWindowSize';
 import { SidebarProvider } from '../context/SidebarContext';
 
 function Watch() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import useWindowSize from 'hooks/useWindowSize';
+import useWindowSize from 'Hooks/useWindowSize';
 import { SidebarProvider } from 'context/SidebarContext';
 import { Header, Sidebar, SearchFeed } from 'components';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import useWindowSize from 'hooks/useWindowSize';
+import useWindowSize from 'Hooks/useWindowSize';
 
-import useSearchResults from 'hooks/useSearchResults';
+import useSearchResults from 'Hooks/useSearchResults';
 
 import styles from './SearchFeed.module.css';
 

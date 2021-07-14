@@ -3,86 +3,93 @@ import { useHistory } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 import prediction from 'helpers/searchPrediction';
 import { AiOutlineSearch } from 'react-icons/ai';
-
 import styles from './SearchInputHeader.module.css';
 
 function SearchInputHeader() {
   const history = useHistory();
 
-  const [query, setQuery] = useState('');
+  const [input, setInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [selectedSuggestion, setSelectedSuggestion] = useState('');
 
-  // Prediction function
+  // SET INPUT ON CHANGE
+  const onInputChange = useCallback(
+    (e) => {
+      e.preventDefault();
+      setInput(e.target.value);
 
-  const onQueryChange = useCallback((e) => {
-    const onTypeSuggest = async () => {
-      const response = await prediction(e.target.value);
-      setSuggestions(response);
-    };
-    onTypeSuggest();
-  }, []);
+      // GET PREDICTIONS
+      const onTypeSuggest = async () => {
+        const response = await prediction(input);
+        setSuggestions(response);
+      };
 
-  // Debounce for search input
-  const debouncedQueryChanged = useMemo(() => debounce(onQueryChange, 200), [onQueryChange]);
-  useEffect(() => () => debouncedQueryChanged.cancel(), [debouncedQueryChanged]);
+      onTypeSuggest();
+    },
+    [input],
+  );
 
-  // on Submit search input
-  const onQuerySubmit = (e) => {
-    e.preventDefault();
-    history.push(`results?search=${query}`);
-    setShowSuggestions(false);
-  };
+  // ONSELECTED PREDICTION SUBMIT I WANT TO PUSH SELECTED ITEM INTO HISTORY ADDRESS
+  // e prevent default on submit
+  // I want to set the sugggestion if you click inside the input change suggestions
 
-  // IF TRUE SHOW SUGGESTION CONTAINER
-  const suggestionContainer = () => setShowSuggestions((prev) => !prev);
-
-  // ON CLICK SUGGESTIONS > SEARCH RESULTS PAGE
-  const selectSuggestion = (e) => {
+  const onSelectedPredictionSubmit = (e) => {
     e.preventDefault();
     history.push(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
-    setShowSuggestions((prev) => !prev);
     setSelectedSuggestion(e.target.textContent);
+    setVisible(false);
+    setInput(e.target.textContent);
   };
 
-  useEffect(() => setQuery(selectedSuggestion), [selectedSuggestion]);
+  // INPUT SUBMIT / BUTTON SUBMIT
+  const onInputSubmit = (e) => {
+    e.preventDefault();
+    history.push(`results?search=${input}`);
+  };
+
+  console.log(input, selectedSuggestion, setSelectedSuggestion);
+  // Debounce for search input
+  const debouncedInputChanged = useMemo(() => debounce(onInputChange, 200), [onInputChange]);
+  useEffect(() => () => debouncedInputChanged.cancel(), [debouncedInputChanged]);
 
   return (
     <div className={styles.headerContainerSearch}>
       <div className={styles.inputContainer}>
-        <form autoComplete="off" className={styles.searchForm} onSubmit={onQuerySubmit}>
+        <form autoComplete="off" className={styles.searchForm} onSubmit={onInputSubmit}>
           <input
             id="searchInput"
             name="searchInput"
             className={styles.searchInput}
             type="search"
             placeholder="Search"
-            onChange={debouncedQueryChanged}
-            onFocus={suggestionContainer}
+            onChange={debouncedInputChanged}
+            // onFocus={() => setVisible(true)}
+            onMouseUp={() => setVisible((prev) => !prev)}
           />
-          <button type="button" className={styles.searchBtn} onClick={onQuerySubmit}>
+          <button type="button" className={styles.searchBtn} onClick={onInputSubmit}>
             <AiOutlineSearch />
           </button>
         </form>
-        {showSuggestions && (
-          <section className={showSuggestions && styles.suggestionsContainer}>
-            {suggestions.length === 0 && showSuggestions && (
+        {visible && (
+          <section className={visible && styles.suggestionsContainer}>
+            {suggestions.length === 0 && visible && (
               <div className={styles.placeholderItem}>Start typing...</div>
             )}
-            {suggestions.length > 0 &&
-              suggestions.map((item) => (
-                <div
-                  key={item.replace(/ /g, '+')}
-                  role="button"
-                  tabIndex={0}
-                  className={styles.suggestionItem}
-                  onClick={selectSuggestion}
-                  onKeyDown={selectSuggestion}
-                >
-                  {item}
-                </div>
-              ))}
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={onSelectedPredictionSubmit}
+              onKeyDown={onSelectedPredictionSubmit}
+            >
+              {input.length !== 0 &&
+                suggestions.length > 0 &&
+                suggestions.map((item) => (
+                  <div key={item.replace(/ /g, '+')} className={styles.suggestionItem}>
+                    {item}
+                  </div>
+                ))}
+            </div>
           </section>
         )}
       </div>

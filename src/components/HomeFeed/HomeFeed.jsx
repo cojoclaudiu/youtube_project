@@ -5,7 +5,7 @@ import styles from './HomeFeed.module.css';
 
 function HomeFeed() {
   return (
-    <div className={styles.homePageContainer}>
+    <div className={styles.homeFeedContainer}>
       <Videos />
     </div>
   );

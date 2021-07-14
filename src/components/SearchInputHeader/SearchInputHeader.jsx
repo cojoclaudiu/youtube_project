@@ -36,9 +36,7 @@ function SearchInputHeader() {
   };
 
   // IF TRUE SHOW SUGGESTION CONTAINER
-  const suggestionContainer = useCallback(() => {
-    setShowSuggestions((prev) => !prev);
-  }, []);
+  const suggestionContainer = () => setShowSuggestions((prev) => !prev);
 
   // ON CLICK SUGGESTIONS > SEARCH RESULTS PAGE
   const selectSuggestion = (e) => {
@@ -75,7 +73,7 @@ function SearchInputHeader() {
             {suggestions.length > 0 &&
               suggestions.map((item) => (
                 <div
-                  key={item}
+                  key={item.replace(/ /g, '+')}
                   role="button"
                   tabIndex={0}
                   className={styles.suggestionItem}

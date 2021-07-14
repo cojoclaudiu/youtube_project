@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header, Sidebar, Categories, HomeFeed } from 'components';
 import useWindowSize from 'hooks/useWindowSize';
+import { Header, Sidebar, Categories, HomeFeed } from 'components';
 import { SidebarProvider } from '../context/SidebarContext';
 
 function Homepage() {

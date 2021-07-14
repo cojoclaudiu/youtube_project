@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import useWindowSize from 'hooks/useWindowSize';
-import { searchVideo } from 'api/youtube';
+
+import useSearchResults from 'hooks/useSearchResults';
 
 import styles from './SearchFeed.module.css';
 
 function SearchFeed() {
   const width = useWindowSize() > 550;
-
-  const searchQuery = useLocation()
-    .search.replace('?category_query=', '')
-    .replace('?search=', '')
-    .replace(/\+/g, ' ');
-
-  const [results, setResults] = useState([]);
-
-  useEffect(() => {
-    async function getSearchData(keyword) {
-      const response = await searchVideo(keyword).get();
-      const getData = await response.data.items;
-      setResults(getData);
-    }
-    document.title = searchQuery;
-    getSearchData(searchQuery);
-  }, [searchQuery]);
+  const results = useSearchResults();
 
   return (
     <div className={styles.feedContainer}>
@@ -32,7 +17,7 @@ function SearchFeed() {
         {results.map(
           (item) =>
             item.id.videoId && (
-              <Link key={item.snippet.title} to={`/watch?v=${item.id.videoId}`}>
+              <Link key={item.snippet.title.replace(/ /g, '?')} to={`/watch?v=${item.id.videoId}`}>
                 <div className={styles.videoContainer}>
                   <img
                     className={styles.videoImage}

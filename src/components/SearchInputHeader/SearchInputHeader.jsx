@@ -11,7 +11,13 @@ function SearchInputHeader() {
   const [input, setInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [visible, setVisible] = useState(false);
-  const [selectedSuggestion, setSelectedSuggestion] = useState('');
+  const [, setSelectedSuggestion] = useState('');
+
+  const eventOnBlur = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setVisible((prev) => !prev);
+    }
+  };
 
   // SET INPUT ON CHANGE
   const onInputChange = useCallback(
@@ -48,14 +54,13 @@ function SearchInputHeader() {
     history.push(`results?search=${input}`);
   };
 
-  console.log(input, selectedSuggestion, setSelectedSuggestion);
   // Debounce for search input
   const debouncedInputChanged = useMemo(() => debounce(onInputChange, 200), [onInputChange]);
   useEffect(() => () => debouncedInputChanged.cancel(), [debouncedInputChanged]);
 
   return (
     <div className={styles.headerContainerSearch}>
-      <div className={styles.inputContainer}>
+      <div className={styles.inputContainer} onBlur={eventOnBlur}>
         <form autoComplete="off" className={styles.searchForm} onSubmit={onInputSubmit}>
           <input
             id="searchInput"
@@ -64,8 +69,7 @@ function SearchInputHeader() {
             type="search"
             placeholder="Search"
             onChange={debouncedInputChanged}
-            // onFocus={() => setVisible(true)}
-            onMouseUp={() => setVisible((prev) => !prev)}
+            onFocus={() => setVisible(true)}
           />
           <button type="button" className={styles.searchBtn} onClick={onInputSubmit}>
             <AiOutlineSearch />

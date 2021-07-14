@@ -17,7 +17,7 @@ function SearchFeed() {
         {results.map(
           (item) =>
             item.id.videoId && (
-              <Link key={item.snippet.title.replace(/ /g, '?')} to={`/watch?v=${item.id.videoId}`}>
+              <Link key={item.snippet.title + Math.random().toFixed(5)} to={`/watch?v=${item.id.videoId}`}>
                 <div className={styles.videoContainer}>
                   <img
                     className={styles.videoImage}

@@ -1,7 +1,7 @@
 import React from 'react';
+import useWindowSize from 'hooks/useWindowSize';
 import { Header, Sidebar, Categories, HomeFeed } from 'components';
-import useWindowSize from 'Hooks/useWindowSize';
-import { SidebarProvider } from '../context/SidebarContext';
+import { SidebarProvider } from 'context/SidebarContext';
 
 function Homepage() {
   const width = useWindowSize();

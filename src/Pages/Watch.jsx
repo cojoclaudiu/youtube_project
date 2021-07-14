@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Sidebar, VideoPage } from 'components';
-import useWindowSize from 'Hooks/useWindowSize';
-import { SidebarProvider } from '../context/SidebarContext';
+import useWindowSize from 'hooks/useWindowSize';
+import { SidebarProvider } from 'context/SidebarContext';
 
 function Watch() {
   const width = useWindowSize();

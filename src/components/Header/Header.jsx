@@ -1,5 +1,5 @@
 import React from 'react';
-import useWindowSize from 'Hooks/useWindowSize';
+import useWindowSize from 'hooks/useWindowSize';
 import { RightMenu, SearchInputHeader, Navigation, Logo } from 'components';
 
 import styles from './Header.module.css';

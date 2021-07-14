@@ -1,5 +1,5 @@
 import React from 'react';
-import useWindowSize from 'Hooks/useWindowSize';
+import useWindowSize from 'hooks/useWindowSize';
 import { SignInButton } from 'components';
 import { IoAppsSharp } from 'react-icons/io5';
 import { BsThreeDotsVertical } from 'react-icons/bs';

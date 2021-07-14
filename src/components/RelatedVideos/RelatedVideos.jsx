@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useDuration from 'Hooks/useDuration';
-import useViews from 'Hooks/useViews';
-import useRelated from 'Hooks/useRelated';
+import useDuration from 'hooks/useDuration';
+import useViews from 'hooks/useViews';
+import useRelated from 'hooks/useRelated';
 
 import styles from './RelatedVideos.module.css';
 

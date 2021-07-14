@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { statsFormat } from 'helpers/formatCounts';
 import durationStamp from 'helpers/durationStamp';
-import useVideos from 'Hooks/useVideos';
-import useAvatar from 'Hooks/useAvatar';
+import useVideos from 'hooks/useVideos';
+import useAvatar from 'hooks/useAvatar';
 
 import styles from './Videos.module.css';
 

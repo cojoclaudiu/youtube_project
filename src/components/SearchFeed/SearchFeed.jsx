@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import useWindowSize from 'Hooks/useWindowSize';
+import useWindowSize from 'hooks/useWindowSize';
 
-import useSearchResults from 'Hooks/useSearchResults';
+import useSearchResults from 'hooks/useSearchResults';
 
 import styles from './SearchFeed.module.css';
 
@@ -17,7 +17,10 @@ function SearchFeed() {
         {results.map(
           (item) =>
             item.id.videoId && (
-              <Link key={item.snippet.title + Math.random().toFixed(5)} to={`/watch?v=${item.id.videoId}`}>
+              <Link
+                key={item.snippet.title + Math.random().toFixed(5)}
+                to={`/watch?v=${item.id.videoId}`}
+              >
                 <div className={styles.videoContainer}>
                   <img
                     className={styles.videoImage}

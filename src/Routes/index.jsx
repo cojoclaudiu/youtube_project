@@ -1,42 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import useWindowSize from 'hooks/useWindowSize';
-import { SidebarProvider } from 'context/SidebarContext';
-import { Header, Categories, Sidebar, HomePage, VideoPage, SearchFeed } from 'components';
+import Homepage from './Homepage';
+import Watch from './Watch';
+import Results from './Results';
 
 function Routes() {
-  const width = useWindowSize();
-
   return (
     <Router>
       <Switch>
         {/* HOMEPAGE */}
-        <Route path="/" exact>
-          <SidebarProvider>
-            <Header />
-            {width > 550 && <Sidebar />}
-          </SidebarProvider>
-          <Categories />
-          <HomePage />
-        </Route>
+        <Route path="/" exact component={Homepage} />
 
         {/* VIDEOPAGE */}
-        <Route path="/watch" exact>
-          <SidebarProvider>
-            <Header />
-            {width > 550 && <Sidebar />}
-          </SidebarProvider>
-          <VideoPage />
-        </Route>
+        <Route path="/watch" exact component={Watch} />
 
         {/* SEARCH FEED */}
-        <Route path="/results" exact>
-          <SidebarProvider>
-            <Header />
-            {width > 550 && <Sidebar />}
-            <SearchFeed />
-          </SidebarProvider>
-        </Route>
+        <Route path="/results" exact component={Results} />
       </Switch>
     </Router>
   );

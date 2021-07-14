@@ -1,7 +1,7 @@
 export { default as SignInButton } from './Buttons/SignIn/SignInButton';
 export { default as Categories } from './Categories/Categories';
 export { default as Header } from './Header/Header';
-export { default as HomePage } from './HomePage/HomePage';
+export { default as HomeFeed } from './HomeFeed/HomeFeed';
 export { default as Logo } from './Logo/Logo';
 export { default as Navigation } from './Navigation/Navigation';
 export { default as RelatedVideos } from './RelatedVideos/RelatedVideos';

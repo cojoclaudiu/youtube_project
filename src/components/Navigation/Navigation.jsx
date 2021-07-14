@@ -3,7 +3,7 @@ import { BiMenu } from 'react-icons/bi';
 import { SidebarContext } from 'context/SidebarContext';
 import styles from './Navigation.module.css';
 
-const Navigation = () => {
+function Navigation() {
   const { sidebar, setSidebar } = useContext(SidebarContext);
 
   return (
@@ -17,6 +17,6 @@ const Navigation = () => {
       </button>
     </nav>
   );
-};
+}
 
 export default Navigation;

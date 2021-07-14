@@ -5,7 +5,7 @@ import { MdThumbUp, MdThumbDown, MdPlaylistAdd, MdMoreHoriz, MdShare } from 'rea
 
 import styles from './VideoStats.module.css';
 
-const VideoStats = ({ videoId }) => {
+function VideoStats({ videoId }) {
   const [status, setStatus] = useState({
     active: false,
     like: false,
@@ -109,6 +109,6 @@ const VideoStats = ({ videoId }) => {
       </div>
     </div>
   );
-};
+}
 
 export default VideoStats;

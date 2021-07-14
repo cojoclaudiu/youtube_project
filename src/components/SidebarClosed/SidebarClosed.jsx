@@ -34,15 +34,17 @@ const sbClosedData = [
   },
 ];
 
-const SidebarClosed = () => (
-  <div className={styles.sidebarClosed}>
-    {sbClosedData.map((link) => (
-      <div key={link.id} className={styles.itemContainer}>
-        <div className={styles.itemIcon}>{link.icon}</div>
-        <div className={styles.itemName}>{link.name}</div>
-      </div>
-    ))}
-  </div>
-);
+function SidebarClosed() {
+  return (
+    <div className={styles.sidebarClosed}>
+      {sbClosedData.map((link) => (
+        <div key={link.id} className={styles.itemContainer}>
+          <div className={styles.itemIcon}>{link.icon}</div>
+          <div className={styles.itemName}>{link.name}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default SidebarClosed;

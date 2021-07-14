@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { SidebarContext } from 'context/SidebarContext';
 import useWindowSize from 'hooks/useWindowSize';
-import SidebarOpen from './SidebarOpen/SidebarOpen';
-import SidebarClosed from './SidebarClosed/SidebarClosed';
+import { SidebarOpen, SidebarClosed } from 'components';
+
 import styles from './Sidebar.module.css';
 
-const Sidebar = () => {
+function Sidebar() {
   let { sidebar } = useContext(SidebarContext);
   const width = useWindowSize();
 
@@ -17,6 +17,6 @@ const Sidebar = () => {
       {sidebar ? <SidebarOpen /> : <SidebarClosed />}
     </aside>
   );
-};
+}
 
 export default Sidebar;

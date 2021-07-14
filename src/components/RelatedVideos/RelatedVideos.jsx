@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { relatedVideos, youtubeVideo } from 'api/youtube';
 import durationStamp from 'helpers/durationStamp';
 import { statsFormat } from 'helpers/formatCounts';
+
 import styles from './RelatedVideos.module.css';
 
-const RelatedVideos = ({ addId }) => {
+function RelatedVideos({ addId }) {
   const [related, setRelated] = useState([]);
   const [videoDuration, setVideoDuration] = useState([]);
   const [views, setViews] = useState([]);
@@ -74,6 +75,6 @@ const RelatedVideos = ({ addId }) => {
       ))}
     </div>
   );
-};
+}
 
 export default RelatedVideos;

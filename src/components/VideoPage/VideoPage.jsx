@@ -1,12 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
-import RelatedVideos from 'components/RelatedVideos/RelatedVideos';
-import VideoStats from 'components/VideoStats/VideoStats';
+import { VideoPlayer, RelatedVideos, VideoStats } from 'components';
 
 import styles from './VideoPage.module.css';
 
-const VideoPage = () => {
+function VideoPage() {
   const videoId = useLocation().search.replace('?v=', '');
 
   return (
@@ -18,6 +16,6 @@ const VideoPage = () => {
       <RelatedVideos addId={videoId} />
     </div>
   );
-};
+}
 
 export default VideoPage;

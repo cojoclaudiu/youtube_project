@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 
 import styles from './VideoPlayer.module.css';
 
-const VideoPlayer = ({ id }) => {
+function VideoPlayer({ id }) {
   const opts = {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
@@ -16,6 +16,6 @@ const VideoPlayer = ({ id }) => {
   };
 
   return <YouTube opts={opts} className={styles.videoPlayer} videoId={id} />;
-};
+}
 
 export default VideoPlayer;

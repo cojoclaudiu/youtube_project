@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { youtube, avatar } from 'api/youtube';
-import durationStamp from 'helpers/durationStamp';
 import { statsFormat } from 'helpers/formatCounts';
+import durationStamp from 'helpers/durationStamp';
+
 import styles from './Videos.module.css';
 
 // videos.items[0].snippet.thumbnails.default.url
 
-const Videos = () => {
+function Videos() {
   const [videos, setVideos] = useState([]);
   const [urlAvatars, setUrlAvatars] = useState([]);
 
@@ -65,6 +66,6 @@ const Videos = () => {
       ))}
     </div>
   );
-};
+}
 
 export default Videos;

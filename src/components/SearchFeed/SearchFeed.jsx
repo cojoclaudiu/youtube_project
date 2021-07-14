@@ -6,7 +6,7 @@ import { searchVideo } from 'api/youtube';
 
 import styles from './SearchFeed.module.css';
 
-const SearchFeed = () => {
+function SearchFeed() {
   const width = useWindowSize() > 550;
 
   const searchQuery = useLocation()
@@ -52,6 +52,6 @@ const SearchFeed = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SearchFeed;

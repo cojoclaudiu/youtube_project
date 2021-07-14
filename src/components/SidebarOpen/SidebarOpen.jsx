@@ -9,17 +9,19 @@ import SidebarBox6 from './SidebarBox6/SidebarBox6';
 import SidebarBox7 from './SidebarBox7/SidebarBox7';
 import SidebarFooter from './SidebarFooter/SidebarFooter';
 
-const SidebarOpen = () => (
-  <div className={styles.sidebarOpen}>
-    <SidebarBox1 />
-    <SidebarBox2 />
-    <SidebarBox3 />
-    <SidebarBox4 />
-    <SidebarBox5 />
-    <SidebarBox6 />
-    <SidebarBox7 />
-    <SidebarFooter />
-  </div>
-);
+function SidebarOpen() {
+  return (
+    <div className={styles.sidebarOpen}>
+      <SidebarBox1 />
+      <SidebarBox2 />
+      <SidebarBox3 />
+      <SidebarBox4 />
+      <SidebarBox5 />
+      <SidebarBox6 />
+      <SidebarBox7 />
+      <SidebarFooter />
+    </div>
+  );
+}
 
 export default SidebarOpen;

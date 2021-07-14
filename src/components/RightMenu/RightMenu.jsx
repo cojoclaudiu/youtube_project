@@ -1,11 +1,12 @@
 import React from 'react';
 import useWindowSize from 'hooks/useWindowSize';
+import { SignInButton } from 'components';
 import { IoAppsSharp } from 'react-icons/io5';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import SignInButton from 'components/Buttons/SignIn/SignInButton';
-import styles from './RgtMenu.module.css';
 
-const RgtMenu = () => {
+import styles from './RightMenu.module.css';
+
+function RightMenu() {
   const width = useWindowSize() < 935;
 
   return (
@@ -25,6 +26,6 @@ const RgtMenu = () => {
       {!width && <SignInButton />}
     </div>
   );
-};
+}
 
-export default RgtMenu;
+export default RightMenu;

@@ -1,11 +1,12 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import prediction from 'helpers/searchPrediction';
 import debounce from 'lodash.debounce';
+import prediction from 'helpers/searchPrediction';
 import { AiOutlineSearch } from 'react-icons/ai';
-import styles from './SearchHeader.module.css';
 
-const SearchHeader = () => {
+import styles from './SearchInputHeader.module.css';
+
+function SearchInputHeader() {
   const history = useHistory();
 
   const [query, setQuery] = useState('');
@@ -14,9 +15,8 @@ const SearchHeader = () => {
   const [selectedSuggestion, setSelectedSuggestion] = useState('');
 
   // Prediction function
-  const onQueryChange = useCallback((e) => {
-    setQuery(e.target.value);
 
+  const onQueryChange = useCallback((e) => {
     const onTypeSuggest = async () => {
       const response = await prediction(e.target.value);
       setSuggestions(response);
@@ -32,7 +32,6 @@ const SearchHeader = () => {
   const onQuerySubmit = (e) => {
     e.preventDefault();
     history.push(`results?search=${query}`);
-    setQuery(selectedSuggestion);
     setShowSuggestions(false);
   };
 
@@ -42,16 +41,14 @@ const SearchHeader = () => {
   }, []);
 
   // ON CLICK SUGGESTIONS > SEARCH RESULTS PAGE
-  const selectSuggestion = useCallback(
-    (e) => {
-      e.preventDefault();
-      history.push(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
-      setShowSuggestions((prev) => !prev);
-      setSelectedSuggestion(e.target.textContent);
-    },
+  const selectSuggestion = (e) => {
+    e.preventDefault();
+    history.push(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
+    setShowSuggestions((prev) => !prev);
+    setSelectedSuggestion(e.target.textContent);
+  };
 
-    [history],
-  );
+  useEffect(() => setQuery(selectedSuggestion), [selectedSuggestion]);
 
   return (
     <div className={styles.headerContainerSearch}>
@@ -93,6 +90,6 @@ const SearchHeader = () => {
       </div>
     </div>
   );
-};
+}
 
-export default SearchHeader;
+export default SearchInputHeader;

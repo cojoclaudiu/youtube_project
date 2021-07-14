@@ -1,12 +1,10 @@
 import React from 'react';
 import useWindowSize from 'hooks/useWindowSize';
-import RgtMenu from 'components/RightMenu/RgtMenu';
-import SearchHeader from 'components/SearchInput/SearchHeader';
-import Navigation from 'components/Navigation/Navigation';
-import Logo from 'components/Logo/Logo';
+import { RightMenu, SearchInputHeader, Navigation, Logo } from 'components';
+
 import styles from './Header.module.css';
 
-const Header = () => {
+function Header() {
   const width = useWindowSize() > 730;
   return (
     <header className={styles.headerContainer}>
@@ -16,11 +14,11 @@ const Header = () => {
 
       <div className={styles.headerMain}>
         <Logo />
-        <SearchHeader />
-        {width && <RgtMenu />}
+        <SearchInputHeader />
+        {width && <RightMenu />}
       </div>
     </header>
   );
-};
+}
 
 export default Header;

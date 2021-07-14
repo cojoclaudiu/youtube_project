@@ -1,54 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { relatedVideos, youtubeVideo } from 'api/youtube';
-import durationStamp from 'helpers/durationStamp';
-import { statsFormat } from 'helpers/formatCounts';
+import useDuration from 'hooks/useDuration';
+import useViews from 'hooks/useViews';
+import useRelated from 'hooks/useRelated';
 
 import styles from './RelatedVideos.module.css';
 
 function RelatedVideos({ addId }) {
-  const [related, setRelated] = useState([]);
-  const [videoDuration, setVideoDuration] = useState([]);
-  const [views, setViews] = useState([]);
-
-  useEffect(() => {
-    async function getRelatedVideos() {
-      const response = await relatedVideos(addId).get();
-      const getData = await response.data.items.filter((obj) =>
-        Object.prototype.hasOwnProperty.call(obj, 'snippet'),
-      );
-      setRelated(getData);
-    }
-    getRelatedVideos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [addId]);
-
-  useEffect(() => {
-    async function getVideoData() {
-      const arr = related.map(async (video) => {
-        const vId = video.id.videoId;
-        const response = await youtubeVideo(vId).get();
-        return durationStamp(response.data.items[0].contentDetails.duration);
-      });
-      const resolved = await Promise.all(arr);
-      setVideoDuration(...[resolved]);
-    }
-    getVideoData();
-  }, [related]);
-
-  useEffect(() => {
-    async function getViews() {
-      const arr = related.map(async (video) => {
-        const vId = video.id.videoId;
-        const response = await youtubeVideo(vId).get();
-        return statsFormat(response.data.items[0].statistics.viewCount);
-      });
-      const resolved = await Promise.all(arr);
-      setViews(...[resolved]);
-      return arr;
-    }
-    getViews();
-  }, [related]);
+  const related = useRelated(addId);
+  const duration = useDuration(related);
+  const views = useViews(related);
 
   return (
     <div className={styles.sidebarRelated}>
@@ -62,7 +23,7 @@ function RelatedVideos({ addId }) {
                   alt={video.snippet.id}
                   src={video.snippet.thumbnails.medium.url}
                 />
-                <div className={styles.timeStamp}>{videoDuration[index]}</div>
+                <div className={styles.timeStamp}>{duration[index]}</div>
               </div>
               <div className={styles.videoStats}>
                 <h3 className={styles.videoTitle}>{video.snippet.title}</h3>

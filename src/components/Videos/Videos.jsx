@@ -1,43 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { youtube, avatar } from 'api/youtube';
 import { statsFormat } from 'helpers/formatCounts';
 import durationStamp from 'helpers/durationStamp';
+import useVideos from 'hooks/useVideos';
+import useAvatar from 'hooks/useAvatar';
 
 import styles from './Videos.module.css';
 
 // videos.items[0].snippet.thumbnails.default.url
 
 function Videos() {
-  const [videos, setVideos] = useState([]);
-  const [urlAvatars, setUrlAvatars] = useState([]);
-
-  useEffect(() => {
-    async function ytData() {
-      const response = await youtube.get();
-      setVideos(response.data.items);
-    }
-
-    document.title = 'Homepage - Trending';
-
-    ytData();
-  }, []);
-
-  useEffect(() => {
-    async function channelId() {
-      const arr = videos.map(async (video) => {
-        const chId = video.snippet.channelId;
-        const response = await avatar(chId).get();
-        return response.data.items[0].snippet.thumbnails.default.url;
-      });
-      const resolved = await Promise.all(arr);
-      setUrlAvatars(...[resolved]);
-    }
-
-    channelId();
-  }, [videos]);
-
-  // console.log(videos);
+  const videos = useVideos();
+  const urlAvatars = useAvatar(videos);
 
   return (
     <div className={styles.videosContainer}>

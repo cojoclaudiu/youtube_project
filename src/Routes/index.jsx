@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Homepage from './Homepage';
-import Watch from './Watch';
-import Results from './Results';
+import Homepage from '../Pages/Homepage';
+import Watch from '../Pages/Watch';
+import Results from '../Pages/Results';
 
 function Routes() {
   return (

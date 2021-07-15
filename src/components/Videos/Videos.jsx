@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { statsFormat } from 'helpers/formatCounts';
 import durationStamp from 'helpers/durationStamp';
@@ -13,9 +13,14 @@ function Videos() {
   const videos = useVideos();
   const urlAvatars = useAvatar(videos);
 
+  const [store, setStore] = useState([]);
+  useEffect(() => setStore(videos), [videos]);
+
+  console.log(store);
+
   return (
     <div className={styles.videosContainer}>
-      {videos.map((video, index) => (
+      {store.map((video, index) => (
         <Link key={video.id} to={`/watch?v=${video.id}`}>
           <div className={styles.videoContainer}>
             <div className={styles.thumbnailContainer}>

@@ -1,7 +1,18 @@
 const durationStamp = (duration) => {
+  const unChnaged = duration;
   const durationArray = duration.match(/\d+/g).map(Number);
 
-  if (durationArray.length === 1) {
+  if (durationArray.length === 1 && unChnaged.includes('M')) {
+    const [min] = durationArray;
+    return `${min}:00`;
+  }
+
+  if (durationArray.length === 1 && unChnaged.includes('H')) {
+    const [hour] = durationArray;
+    return `${hour}:00:00`;
+  }
+
+  if (durationArray.length === 1 && unChnaged.includes('S')) {
     const [sec] = durationArray;
     if (sec <= 9) {
       return `0:0${sec}`;

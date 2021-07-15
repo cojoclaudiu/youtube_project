@@ -8,21 +8,16 @@ const getRandomAPI = () => {
     'AIzaSyB9vXmreuu8fhJWoB8hYlsQW4j7PdUsjdc',
     'AIzaSyBNgl5w_NLUnAVU52K9qY5GMeVOnx7nHbE',
   ];
-  // const APIS2 = [
-  //   'AIzaSyDdkAbOjEYDztZTecp2axGJpZESbTbDqvI',
-  //   'AIzaSyCoxN07jN-ql-UzZ4iNMOS-pSD4pdgbaP4',
-  //   'AIzaSyBzCZnf2oPGfV60d7qDB1M7ieUkQ0htqNQ',
-  //   'AIzaSyCElG8PaM601lHGrC4M4vnvEwLGkGOI_Tk',
-  //   'AIzaSyCSSTDBu4ETz_wcdUXJIoGyQtYAgRIbcl8',
-  //   'AIzaSyCtEgzDTV650l8tV6z7qrXsaoTsACWkGbk',
-  //   'AIzaSyBt6KlmzJRWFwq1zuN2iZLpRxcIhyykJB4',
-  //   'AIzaSyA5usOhzLyxu9ERA7tkdG_mWH1NVo-jgqU',
-  //   'AIzaSyCUSFIq19agHlBXydVb8ZqGNQTX6opc3v4',
-  //   'AIzaSyBB7TFc0IXb7D6gohNSiFNzlrPg_IfJp-A',
-  //   'AIzaSyAoJWUEdc-wxWpmDctasr2XknnfotYnPXM',
-  //   'AIzaSyD6vtAcSbBzB_9LQOV2rj6MJlQZ9XfyHl0',
-  //   'AIzaSyCOggM89-dTxeCUYfv-KWezYld17jdEITA',
-  // ];
+
+  // APIsCJC = [
+  //   "AIzaSyDMbBScdqophxy9B2bfOBDVMkPkSnR82QI",
+  //   "AIzaSyBw2ubQebXuiC7bzXRP-J2g9ZVjqB05uWs",
+  //   "AIzaSyCOggM89-dTxeCUYfv-KWezYld17jdEITA",
+  //   "AIzaSyDCZfNWAa_sZ3y5zHZ7c0i7epoR2cvM-Ds",
+  //   "AIzaSyAg_nIGEp8UTuSg9RjZHD_rMf4EpsA-cMU",
+  //   "AIzaSyCFdvWjCQl2ilT4Asg9l5x1ugnBiDGwxRY"
+  // ]
+
 
   return APIsUSTD[Math.floor(Math.random(APIsUSTD.length) * APIsUSTD.length)];
 };

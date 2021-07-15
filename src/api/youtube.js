@@ -10,13 +10,13 @@ const getRandomAPI = () => {
   // ];
 
   const APIsCJC = [
-    "AIzaSyDMbBScdqophxy9B2bfOBDVMkPkSnR82QI",
-    "AIzaSyBw2ubQebXuiC7bzXRP-J2g9ZVjqB05uWs",
-    "AIzaSyCOggM89-dTxeCUYfv-KWezYld17jdEITA",
-    "AIzaSyDCZfNWAa_sZ3y5zHZ7c0i7epoR2cvM-Ds",
-    "AIzaSyAg_nIGEp8UTuSg9RjZHD_rMf4EpsA-cMU",
-    "AIzaSyCFdvWjCQl2ilT4Asg9l5x1ugnBiDGwxRY"
-  ]
+    'AIzaSyDMbBScdqophxy9B2bfOBDVMkPkSnR82QI',
+    'AIzaSyBw2ubQebXuiC7bzXRP-J2g9ZVjqB05uWs',
+    'AIzaSyCOggM89-dTxeCUYfv-KWezYld17jdEITA',
+    'AIzaSyDCZfNWAa_sZ3y5zHZ7c0i7epoR2cvM-Ds',
+    'AIzaSyAg_nIGEp8UTuSg9RjZHD_rMf4EpsA-cMU',
+    'AIzaSyCFdvWjCQl2ilT4Asg9l5x1ugnBiDGwxRY',
+  ];
 
   return APIsCJC[Math.floor(Math.random(APIsCJC.length) * APIsCJC.length)];
 };

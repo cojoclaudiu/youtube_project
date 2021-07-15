@@ -15,7 +15,6 @@ const useSearchResults = () => {
       const response = await searchVideo(keyword).get();
       const getData = await response.data.items.filter((item) => item.id.videoId !== undefined);
       setResults(getData);
-      console.log(getData);
     }
     document.title = searchQuery;
     getSearchData(searchQuery);

@@ -8,7 +8,7 @@ const useDuration = (videos) => {
   useEffect(() => {
     async function getVideoData() {
       const arr = videos.map(async (video) => {
-        const vId = video.id.videoId
+        const vId = video.id.videoId;
 
         const response = await youtubeVideo(vId).get();
         return durationStamp(response.data.items[0].contentDetails.duration);

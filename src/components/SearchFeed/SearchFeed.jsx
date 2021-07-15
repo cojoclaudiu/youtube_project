@@ -12,12 +12,6 @@ function SearchFeed() {
   const results = useSearchResults();
   const duration = useDuration(results);
 
-  // const getDuration = (array) => array.filter((item) => item.id.videoId !== undefined);
-  // const filtredResults = getDuration(results);
-  // // const duration = useDuration(filtredResults);
-
-  // console.log(filtredResults)
-
   return (
     <div className={styles.feedContainer}>
       <div className={styles.itemsFeed}>

@@ -10,7 +10,6 @@ function RelatedVideos({ addId }) {
   const related = useRelated(addId);
   const duration = useDuration(related);
   const views = useViews(related);
-  console.log(related);
 
   return (
     <div className={styles.sidebarRelated}>

@@ -18,12 +18,11 @@ const getRandomAPI = () => {
   //   "AIzaSyCFdvWjCQl2ilT4Asg9l5x1ugnBiDGwxRY"
   // ]
 
-
   return APIsUSTD[Math.floor(Math.random(APIsUSTD.length) * APIsUSTD.length)];
 };
 
 export const youtube = axios.create({
-  baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${getRandomAPI()}`,
+  baseURL: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=10&regionCode=US&key=${getRandomAPI()}`,
 });
 
 export const youtubeVideo = (videoId) =>

@@ -11,7 +11,6 @@ function SearchInputHeader() {
   const [input, setInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [visible, setVisible] = useState(false);
-  const [, setSelectedSuggestion] = useState('');
 
   const eventOnBlur = (e) => {
     if (!e.currentTarget.contains(e.relatedTarget)) {
@@ -36,18 +35,6 @@ function SearchInputHeader() {
     [input],
   );
 
-  // ONSELECTED PREDICTION SUBMIT I WANT TO PUSH SELECTED ITEM INTO HISTORY ADDRESS
-  // e prevent default on submit
-  // I want to set the sugggestion if you click inside the input change suggestions
-
-  const onSelectedPredictionSubmit = (e) => {
-    e.preventDefault();
-    history.push(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
-    setSelectedSuggestion(e.target.textContent);
-    setVisible(false);
-    setInput(e.target.textContent);
-  };
-
   // INPUT SUBMIT / BUTTON SUBMIT
   const onInputSubmit = (e) => {
     e.preventDefault();
@@ -57,6 +44,17 @@ function SearchInputHeader() {
   // Debounce for search input
   const debouncedInputChanged = useMemo(() => debounce(onInputChange, 200), [onInputChange]);
   useEffect(() => () => debouncedInputChanged.cancel(), [debouncedInputChanged]);
+
+  // ONSELECTED PREDICTION SUBMIT I WANT TO PUSH SELECTED ITEM INTO HISTORY ADDRESS
+  // e prevent default on submit
+  // I want to set the sugggestion if you click inside the input change suggestions
+  const onSelectedPredictionSubmit = (e) => {
+    e.preventDefault();
+    history.push(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
+    setVisible((prev) => !prev);
+  };
+
+  console.log(input);
 
   return (
     <div className={styles.headerContainerSearch}>

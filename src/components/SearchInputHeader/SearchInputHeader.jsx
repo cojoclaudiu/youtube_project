@@ -54,8 +54,6 @@ function SearchInputHeader() {
     setVisible((prev) => !prev);
   };
 
-  console.log(input);
-
   return (
     <div className={styles.headerContainerSearch}>
       <div className={styles.inputContainer} onBlur={eventOnBlur}>

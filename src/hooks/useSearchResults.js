@@ -13,8 +13,9 @@ const useSearchResults = () => {
   useEffect(() => {
     async function getSearchData(keyword) {
       const response = await searchVideo(keyword).get();
-      const getData = await response.data.items;
+      const getData = await response.data.items.filter((item) => item.id.videoId !== undefined);
       setResults(getData);
+      console.log(getData);
     }
     document.title = searchQuery;
     getSearchData(searchQuery);

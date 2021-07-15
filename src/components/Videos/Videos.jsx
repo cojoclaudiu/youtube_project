@@ -16,7 +16,6 @@ function Videos() {
   const [store, setStore] = useState([]);
   useEffect(() => setStore(videos), [videos]);
 
-  console.log(store);
 
   return (
     <div className={styles.videosContainer}>

@@ -5,6 +5,7 @@
   font-size: 13px;
   font-weight: 600;
   color: var(--colorMediumDark);
+  max-width: 95%;
 }
 
 .footerRow1,

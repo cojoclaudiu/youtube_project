@@ -14,6 +14,7 @@ const getRandomAPI = () => {
     'AIzaSyBRsYuLbfYsBsl3B0oGCKz07KNffOwvTDs',
     'AIzaSyCVdRzgM5kZFS-YOF67eAizPRq5H0LlPRc',
     'AIzaSyDuNMiA_gxJBd5Ta2Lcc2DSX5CxiNjTFpk',
+    'AIzaSyCkfLsl_nQnEPZYgB_r_Vw8jHT2PtGvAGI',
   ];
   return newQuota[Math.floor(Math.random(newQuota.length) * newQuota.length)];
 };

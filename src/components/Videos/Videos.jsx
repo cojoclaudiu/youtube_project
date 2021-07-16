@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { statsFormat } from 'helpers/formatCounts';
 import durationStamp from 'helpers/durationStamp';
@@ -17,12 +17,41 @@ import styles from './Videos.module.css';
 function Videos() {
   const videos = useVideos();
   const urlAvatars = useAvatar(videos);
-  const { store, keyword } = useHomepageFilter(videos);
+  const { store, setStore, keyword } = useHomepageFilter(videos);
+  const [toggle, setToggle] = useState(true);
+
+  const handleFilterASC = (e) => {
+    e.preventDefault();
+    const newStore = store.sort((a, b) => b.statistics.viewCount - a.statistics.viewCount);
+    setStore(newStore);
+    setToggle(!toggle);
+  };
+
+  const handleFilterDESC = (e) => {
+    e.preventDefault();
+    const newStore = store.sort((a, b) => a.statistics.viewCount - b.statistics.viewCount);
+    setStore(newStore);
+    setToggle(!toggle);
+  };
 
   return (
-    <div className={styles.videosContainer}>
-      {
-        store
+    <>
+      <label htmlFor="trending">
+        Sort trending by:
+        <select name="trending" id="trending">
+          <optgroup label="Views">
+            <option value="Most" onClick={handleFilterASC}>
+              Most
+            </option>
+            <option value="Least" onClick={handleFilterDESC}>
+              Least
+            </option>
+          </optgroup>
+        </select>
+      </label>
+
+      <div className={styles.videosContainer}>
+        {store
           .filter(
             (video) =>
               (keyword === null && video) ||
@@ -56,10 +85,9 @@ function Videos() {
                 </div>
               </div>
             </Link>
-          ))
-        // comment to be separated
-      }
-    </div>
+          ))}
+      </div>
+    </>
   );
 }
 

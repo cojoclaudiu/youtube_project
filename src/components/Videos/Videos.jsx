@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { statsFormat } from 'helpers/formatCounts';
-import durationStamp from 'helpers/durationStamp';
+
+// hooks
 import useVideos from 'hooks/useVideos';
 import useAvatar from 'hooks/useAvatar';
 import useHomepageFilter from 'hooks/useHomepageFilter';
+
+// components
+import DurationVideo from 'components/DurationVideo/DurationVideo';
 
 import styles from './Videos.module.css';
 
@@ -33,9 +37,7 @@ function Videos() {
                     src={video.snippet.thumbnails.high.url}
                     alt={video.snippet.title}
                   />
-                  <div className={styles.timeStamp}>
-                    {durationStamp(video.contentDetails.duration)}
-                  </div>
+                  <DurationVideo duration={video.contentDetails.duration} />
                 </div>
                 <div className={styles.videoDetails}>
                   <img
@@ -43,7 +45,6 @@ function Videos() {
                     src={urlAvatars[index]}
                     alt={video.snippet.title}
                   />
-
                   <div className={styles.titlesContainer}>
                     <h3 className={styles.videoTitle}>{video.snippet.title}</h3>
                     <div className={styles.channelTitle}>{video.snippet.channelTitle}</div>

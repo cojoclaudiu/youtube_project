@@ -33,9 +33,10 @@ function Videos() {
               <div className={styles.videoContainer}>
                 <div className={styles.thumbnailContainer}>
                   <img
+                    src={video.snippet.thumbnails.medium.url}
                     className={styles.thumbnailImage}
-                    src={video.snippet.thumbnails.high.url}
                     alt={video.snippet.title}
+                    loading="lazy"
                   />
                   <DurationVideo duration={video.contentDetails.duration} />
                 </div>

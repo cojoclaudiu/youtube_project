@@ -6,7 +6,7 @@ const useHomepageFilter = (videos) => {
   const { keyword } = useContext(HomeVideosContext);
   useEffect(() => setStore(videos), [videos]);
 
-  return {store, keyword}
+  return { store, keyword };
 };
 
 export default useHomepageFilter;

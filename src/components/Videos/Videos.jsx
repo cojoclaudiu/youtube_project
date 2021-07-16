@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { statsFormat } from 'helpers/formatCounts';
-
+import durationStamp from 'helpers/durationStamp';
 // custom hooks
 import useVideos from 'hooks/useVideos';
 import useAvatar from 'hooks/useAvatar';
@@ -38,7 +38,7 @@ function Videos() {
                     alt={video.snippet.title}
                     loading="lazy"
                   />
-                  <DurationVideo duration={video.contentDetails.duration} />
+                  <DurationVideo duration={durationStamp(video.contentDetails.duration)} />
                 </div>
                 <div className={styles.videoDetails}>
                   <img

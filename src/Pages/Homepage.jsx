@@ -1,10 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import useWindowSize from 'hooks/useWindowSize';
-import { Header, Sidebar, Categories } from 'components';
+import { Header, Sidebar, Categories, HomeFeed } from 'components';
 import { SidebarProvider } from 'context/SidebarContext';
 import { HomeVideosProvider } from 'context/HomeVideosContext';
-
-const HomeFeed = React.lazy(() => import('../components/HomeFeed/HomeFeed'));
 
 function Homepage() {
   const width = useWindowSize();
@@ -17,9 +15,7 @@ function Homepage() {
           {width > 550 && <Sidebar />}
         </SidebarProvider>
         <Categories />
-        <Suspense fallback={<div>Loading...</div>}>
-          <HomeFeed />
-        </Suspense>
+        <HomeFeed />
       </HomeVideosProvider>
     </>
   );

@@ -10,7 +10,7 @@ function VideoPage() {
   return (
     <div className={styles.playerPage}>
       <div className={styles.videoContainer}>
-        <VideoPlayer id={videoId} />
+        <VideoPlayer videoId={videoId} />
         <VideoStats videoId={videoId} />
       </div>
       <RelatedVideos addId={videoId} />

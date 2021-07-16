@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+// custom hooks
 import useDuration from 'hooks/useDuration';
 import useViews from 'hooks/useViews';
 import useRelated from 'hooks/useRelated';
+
+//  components
+import DurationVideo from 'components/DurationVideo/DurationVideo';
 
 import styles from './RelatedVideos.module.css';
 
@@ -23,7 +28,7 @@ function RelatedVideos({ addId }) {
                   alt={video.snippet.id}
                   src={video.snippet.thumbnails.medium.url}
                 />
-                <div className={styles.timeStamp}>{duration[index]}</div>
+                <DurationVideo duration={duration[index]} />
               </div>
               <div className={styles.videoStats}>
                 <h3 className={styles.videoTitle}>{video.snippet.title}</h3>

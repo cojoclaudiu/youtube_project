@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+
+// custom hooks
 import useWindowSize from 'hooks/useWindowSize';
 import useSearchResults from 'hooks/useSearchResults';
 import useDuration from 'hooks/useDuration';
 import useAvatar from 'hooks/useAvatar';
 import useViews from 'hooks/useViews';
+
+// components
+import DurationVideo from 'components/DurationVideo/DurationVideo';
 
 import styles from './SearchFeed.module.css';
 
@@ -37,7 +42,7 @@ function SearchFeed() {
                       }
                       alt={item.snippet.title}
                     />
-                    <div className={styles.timeStamp}>{duration[i]}</div>
+                    <DurationVideo duration={duration[i]} />
                   </div>
                   <div className={styles.videoDetails}>
                     <h2 className={styles.title}>{_.unescape(item.snippet.title)}</h2>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { statsFormat } from 'helpers/formatCounts';
 
-// hooks
+// custom hooks
 import useVideos from 'hooks/useVideos';
 import useAvatar from 'hooks/useAvatar';
 import useHomepageFilter from 'hooks/useHomepageFilter';

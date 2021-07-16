@@ -1,7 +1,6 @@
 import React from 'react';
 import useWindowSize from 'hooks/useWindowSize';
 import { RightMenu, SearchInputHeader, Navigation, Logo } from 'components';
-
 import styles from './Header.module.css';
 
 function Header() {
@@ -11,7 +10,6 @@ function Header() {
       <div className={styles.headerMenu}>
         <Navigation />
       </div>
-
       <div className={styles.headerMain}>
         <Logo />
         <SearchInputHeader />

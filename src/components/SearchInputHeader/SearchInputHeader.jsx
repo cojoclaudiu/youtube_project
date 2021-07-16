@@ -1,12 +1,15 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 import prediction from 'helpers/searchPrediction';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { HomeVideosContext } from 'context/HomeVideosContext';
+
 import styles from './SearchInputHeader.module.css';
 
 function SearchInputHeader() {
   const history = useHistory();
+  const { setKeyword } = useContext(HomeVideosContext);
 
   const [input, setInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -23,6 +26,7 @@ function SearchInputHeader() {
     (e) => {
       e.preventDefault();
       setInput(e.target.value);
+      setKeyword(e.target.value.toLowerCase());
 
       // GET PREDICTIONS
       const onTypeSuggest = async () => {
@@ -32,7 +36,7 @@ function SearchInputHeader() {
 
       onTypeSuggest();
     },
-    [input],
+    [input, setKeyword],
   );
 
   // INPUT SUBMIT / BUTTON SUBMIT

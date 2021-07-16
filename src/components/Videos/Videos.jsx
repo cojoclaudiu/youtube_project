@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { statsFormat } from 'helpers/formatCounts';
 import durationStamp from 'helpers/durationStamp';
 import useVideos from 'hooks/useVideos';
 import useAvatar from 'hooks/useAvatar';
-import { HomeVideosContext } from 'context/HomeVideosContext';
+import useHomepageFilter from 'hooks/useHomepageFilter';
 
 import styles from './Videos.module.css';
 
@@ -13,9 +13,7 @@ import styles from './Videos.module.css';
 function Videos() {
   const videos = useVideos();
   const urlAvatars = useAvatar(videos);
-  const [store, setStore] = useState([]);
-  const { keyword } = useContext(HomeVideosContext);
-  useEffect(() => setStore(videos), [videos]);
+  const { store, keyword } = useHomepageFilter(videos);
 
   return (
     <div className={styles.videosContainer}>

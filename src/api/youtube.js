@@ -9,16 +9,13 @@ const getRandomAPI = () => {
   //   'AIzaSyBNgl5w_NLUnAVU52K9qY5GMeVOnx7nHbE',
   // ];
 
-  const APIsCJC = [
-    'AIzaSyDMbBScdqophxy9B2bfOBDVMkPkSnR82QI',
-    'AIzaSyBw2ubQebXuiC7bzXRP-J2g9ZVjqB05uWs',
-    'AIzaSyCOggM89-dTxeCUYfv-KWezYld17jdEITA',
-    'AIzaSyDCZfNWAa_sZ3y5zHZ7c0i7epoR2cvM-Ds',
-    'AIzaSyAg_nIGEp8UTuSg9RjZHD_rMf4EpsA-cMU',
-    'AIzaSyCFdvWjCQl2ilT4Asg9l5x1ugnBiDGwxRY',
+  const newQuota = [
+    'AIzaSyDonqbkYeWFLc6_BW3THeUj1tEs90_LKOY',
+    'AIzaSyBRsYuLbfYsBsl3B0oGCKz07KNffOwvTDs',
+    'AIzaSyCVdRzgM5kZFS-YOF67eAizPRq5H0LlPRc',
+    'AIzaSyDuNMiA_gxJBd5Ta2Lcc2DSX5CxiNjTFpk',
   ];
-
-  return APIsCJC[Math.floor(Math.random(APIsCJC.length) * APIsCJC.length)];
+  return newQuota[Math.floor(Math.random(newQuota.length) * newQuota.length)];
 };
 
 export const youtube = axios.create({

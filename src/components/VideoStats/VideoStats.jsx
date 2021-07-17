@@ -1,53 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { youtubeVideo } from 'api/youtube';
+import React from 'react';
 import { viewsFormat, statsFormat } from 'helpers/formatCounts';
 import { MdThumbUp, MdThumbDown, MdPlaylistAdd, MdMoreHoriz, MdShare } from 'react-icons/md';
+import useVideoStats from 'hooks/useVideosStats';
 
 import styles from './VideoStats.module.css';
 
 function VideoStats({ videoId }) {
-  const [status, setStatus] = useState({
-    active: false,
-    like: false,
-    dislike: false,
-  });
-
-  const [info, setInfo] = useState({
-    id: 'Id',
-    title: 'Title Loading...',
-    likes: 'Likes Loading...',
-    dislikes: 'Dislikes Loading...',
-    views: 'Views Loading...',
-  });
-
-  useEffect(() => {
-    async function videoData() {
-      const response = await youtubeVideo(videoId).get(``);
-      const getData = await response.data;
-      // console.log(getData);
-      setInfo({
-        id: videoId,
-        title: getData.items[0].snippet.title,
-        likes: getData.items[0].statistics.likeCount,
-        dislikes: getData.items[0].statistics.dislikeCount,
-        views: getData.items[0].statistics.viewCount,
-      });
-    }
-
-    videoData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videoId]);
-
-  useEffect(() => {
-    function upDateTitle() {
-      document.title = info.title;
-    }
-    upDateTitle();
-  });
-
-  const handleLike = () => setStatus({ active: !status.active, like: true, dislike: false });
-
-  const handleDislike = () => setStatus({ active: !status.active, like: false, dislike: true });
+  const { handleLike, handleDislike, info, status } = useVideoStats(videoId);
 
   return (
     <div className={styles.videoStats}>

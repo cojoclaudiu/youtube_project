@@ -5,19 +5,19 @@ export default function SortBy({ handleFilterASC, handleFilterDESC, handleFilter
   return (
     <label className={styles.sortByContainer} htmlFor="trending">
       Sort trending by:
-      {/* <select className={styles.sortByItemsContainer} name="trending" id="trending"> */}
+      <select className={styles.sortByItemsContainer} name="trending" id="trending">
         <optgroup label="Views">
-          <option value="Default" onTouchEnd={handleFilterDefault} onClick={handleFilterDefault}>
+          <option value="Default" onSelect={handleFilterDefault} onTouchEnd={handleFilterDefault} onClick={handleFilterDefault}>
             Default
           </option>
-          <option value="Most" onTouchEnd={handleFilterASC} onClick={handleFilterASC}>
+          <option value="Most" onSelect={handleFilterASC} onTouchEnd={handleFilterASC} onClick={handleFilterASC}>
             Most
           </option>
-          <option value="Least" onTouchEnd={handleFilterDESC} onClick={handleFilterDESC}>
+          <option value="Least" onSelect={handleFilterDESC} onTouchEnd={handleFilterDESC} onClick={handleFilterDESC}>
             Least
           </option>
         </optgroup>
-      {/* </select> */}
+      </select>
     </label>
   );
 }

@@ -5,7 +5,7 @@ export default function SortBy({ handleFilterASC, handleFilterDESC, handleFilter
   return (
     <label className={styles.sortByContainer} htmlFor="trending">
       Sort trending by:
-      <select className={styles.sortByItemsContainer} name="trending" id="trending">
+      {/* <select className={styles.sortByItemsContainer} name="trending" id="trending"> */}
         <optgroup label="Views">
           <option value="Default" onTouchEnd={handleFilterDefault} onClick={handleFilterDefault}>
             Default
@@ -17,7 +17,7 @@ export default function SortBy({ handleFilterASC, handleFilterDESC, handleFilter
             Least
           </option>
         </optgroup>
-      </select>
+      {/* </select> */}
     </label>
   );
 }

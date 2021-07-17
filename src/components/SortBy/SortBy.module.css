@@ -6,6 +6,7 @@
 }
 
 .sortByItemsContainer {
+  cursor: pointer;
   margin-left: 10px;
   background-color: white;
   padding: 8px 5px 6px 5px;

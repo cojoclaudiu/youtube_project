@@ -13,27 +13,29 @@ const useSortBy = () => {
     setDefaultStore(def);
   }, [store]);
 
-  const handleFilterASC = (e) => {
-    e.preventDefault();
-    const newStore = store.sort((a, b) => b.statistics.viewCount - a.statistics.viewCount);
-    setStore(newStore);
-    setToggle(!toggle);
+  const handleSelect = (e) => {
+    if (e.target.value === 'default') {
+      e.preventDefault();
+      setStore(defaultStore);
+      setToggle(!toggle);
+    }
+
+    if (e.target.value === 'most') {
+      e.preventDefault();
+      const newStore = store.sort((a, b) => b.statistics.viewCount - a.statistics.viewCount);
+      setStore(newStore);
+      setToggle(!toggle);
+    }
+
+    if (e.target.value === 'least') {
+      e.preventDefault();
+      const newStore = store.sort((a, b) => a.statistics.viewCount - b.statistics.viewCount);
+      setStore(newStore);
+      setToggle(!toggle);
+    }
   };
 
-  const handleFilterDESC = (e) => {
-    e.preventDefault();
-    const newStore = store.sort((a, b) => a.statistics.viewCount - b.statistics.viewCount);
-    setStore(newStore);
-    setToggle(!toggle);
-  };
-
-  const handleFilterDefault = (e) => {
-    e.preventDefault();
-    setStore(defaultStore);
-    setToggle(!toggle);
-  };
-
-  return { store, keyword, handleFilterASC, handleFilterDESC, handleFilterDefault };
+  return { store, keyword, handleSelect };
 };
 
 export default useSortBy;

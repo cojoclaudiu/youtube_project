@@ -18,15 +18,11 @@ import styles from './Videos.module.css';
 function Videos() {
   const videos = useVideos();
   const urlAvatars = useAvatar(videos);
-  const { store, keyword, handleFilterASC, handleFilterDESC, handleFilterDefault } = useSortBy();
+  const { store, keyword, handleSelect } = useSortBy();
 
   return (
     <>
-      <SortBy
-        handleFilterASC={handleFilterASC}
-        handleFilterDESC={handleFilterDESC}
-        handleFilterDefault={handleFilterDefault}
-      />
+      <SortBy handleSelect={handleSelect} />
 
       <div className={styles.videosContainer}>
         {store

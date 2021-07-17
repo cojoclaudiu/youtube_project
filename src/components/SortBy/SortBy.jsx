@@ -7,13 +7,13 @@ export default function SortBy({ handleFilterASC, handleFilterDESC, handleFilter
       Sort trending by:
       <select className={styles.sortByItemsContainer} name="trending" id="trending">
         <optgroup label="Views">
-          <option value="Default" onClick={handleFilterDefault}>
+          <option value="Default" onSelect={handleFilterDefault} onClick={handleFilterDefault}>
             Default
           </option>
-          <option value="Most" onClick={handleFilterASC}>
+          <option value="Most" onSelect={handleFilterASC} onClick={handleFilterASC}>
             Most
           </option>
-          <option value="Least" onClick={handleFilterDESC}>
+          <option value="Least" onSelect={handleFilterDESC} onClick={handleFilterDESC}>
             Least
           </option>
         </optgroup>

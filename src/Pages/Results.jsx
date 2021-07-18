@@ -7,13 +7,15 @@ import { HomeVideosProvider } from 'context/HomeVideosContext';
 function Results() {
   const width = useWindowSize();
   return (
-    <HomeVideosProvider>
+    <>
       <SidebarProvider>
-        <Header />
+        <HomeVideosProvider>
+          <Header />
+        </HomeVideosProvider>
         {width > 550 && <Sidebar />}
-        <SearchFeed />
       </SidebarProvider>
-    </HomeVideosProvider>
+      <SearchFeed />
+    </>
   );
 }
 

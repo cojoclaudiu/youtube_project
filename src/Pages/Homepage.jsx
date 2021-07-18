@@ -9,14 +9,14 @@ function Homepage() {
 
   return (
     <>
-      <HomeVideosProvider>
-        <SidebarProvider>
+      <SidebarProvider>
+        <HomeVideosProvider>
           <Header />
-          {width > 550 && <Sidebar />}
-        </SidebarProvider>
-        <Categories />
-        <HomeFeed />
-      </HomeVideosProvider>
+          <HomeFeed />
+        </HomeVideosProvider>
+        {width > 550 && <Sidebar />}
+      </SidebarProvider>
+      <Categories />
     </>
   );
 }

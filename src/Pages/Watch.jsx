@@ -8,13 +8,13 @@ function Watch() {
   const width = useWindowSize();
   return (
     <>
-      <HomeVideosProvider>
-        <SidebarProvider>
+      <SidebarProvider>
+        <HomeVideosProvider>
           <Header />
-          {width > 550 && <Sidebar />}
-        </SidebarProvider>
-        <VideoPage />
-      </HomeVideosProvider>
+        </HomeVideosProvider>
+        {width > 550 && <Sidebar />}
+      </SidebarProvider>
+      <VideoPage />
     </>
   );
 }

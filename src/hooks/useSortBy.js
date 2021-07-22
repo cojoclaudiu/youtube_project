@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import useVideos from 'hooks/useVideos';
 import useHomepageFilter from 'hooks/useHomepageFilter';
 
-const useSortBy = () => {
-  const videos = useVideos();
+
+const useSortBy = (videos) => {
   const { store, setStore, keyword } = useHomepageFilter(videos);
   const [toggle, setToggle] = useState(true);
   const [defaultStore, setDefaultStore] = useState([]);

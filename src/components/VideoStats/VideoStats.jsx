@@ -2,11 +2,12 @@ import React from 'react';
 import { viewsFormat, statsFormat } from 'helpers/formatCounts';
 import { MdThumbUp, MdThumbDown, MdPlaylistAdd, MdMoreHoriz, MdShare } from 'react-icons/md';
 import useVideoStats from 'hooks/useVideosStats';
+import { youtubeVideo } from 'api/youtube';
 
 import styles from './VideoStats.module.css';
 
 function VideoStats({ videoId }) {
-  const { handleLike, handleDislike, info, status } = useVideoStats(videoId);
+  const { handleLike, handleDislike, info, status } = useVideoStats(videoId, youtubeVideo);
 
   return (
     <div className={styles.videoStats}>

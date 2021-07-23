@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const useAvatar = (avatarAPI, videos) => {
   const [avatarURL, setAvatarURL] = useState(null);
   const [errorAvatar, setErrorAvatar] = useState(null);
   const [loadingAvatar, setLoadingAvatar] = useState(null);
-  const [avatarMounted, setAvatarMounted] = useState(true);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const fetchAvatars = async () => {
       if (videos && videos.length > 0) {
         try {
           setLoadingAvatar(true);
           const arr = videos.map(async (video) => {
             const chId = video.snippet.channelId;
-            const response = await avatarAPI(chId).get();
+            const response = await avatarAPI(chId).get('', { cancelToken: source.token });
             if (response.status === 200) {
               return response.data.items[0].snippet.thumbnails.default.url;
             }
@@ -30,14 +31,12 @@ const useAvatar = (avatarAPI, videos) => {
     };
 
     fetchAvatars();
-    return () => setAvatarMounted(false);
+    return () => source.cancel();
   }, [avatarAPI, videos]);
   return {
     avatarURL,
-    setAvatarURL,
     errorAvatar,
     loadingAvatar,
-    avatarMounted,
   };
 };
 

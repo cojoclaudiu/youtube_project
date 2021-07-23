@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { statsFormat } from 'helpers/formatCounts';
+import axios from 'axios';
 
 const useViews = (related, youtubeVideoAPI) => {
   const [views, setViews] = useState(null);
   const [viewsError, setViewsError] = useState(null);
   const [viewsLoading, setViewsLoading] = useState(null);
-  const [viewsMounted, setViewsMounted] = useState(true);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
+
     /* START FETCH VIEWS */
     const fetchViews = async () => {
       if (related && related.length > 0) {
@@ -15,7 +17,7 @@ const useViews = (related, youtubeVideoAPI) => {
           setViewsLoading(true);
           const arr = related.map(async (video) => {
             const vId = video.id.videoId;
-            const response = await youtubeVideoAPI(vId).get();
+            const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
 
             if (response.status === 200) {
               return statsFormat(response.data.items[0].statistics.viewCount);
@@ -34,10 +36,10 @@ const useViews = (related, youtubeVideoAPI) => {
     /** End FETCH VIEWS */
     fetchViews();
 
-    return () => setViewsMounted(false);
+    return () => source.cancel();
   }, [related, youtubeVideoAPI]);
 
-  return { views, viewsError, viewsLoading, viewsMounted };
+  return { views, viewsError, viewsLoading };
 };
 
 export default useViews;

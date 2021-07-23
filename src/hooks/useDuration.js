@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import durationStamp from 'helpers/durationStamp';
+import axios from 'axios';
 
 const useDuration = (related, youtubeVideoAPI) => {
   const [duration, setDuration] = useState(null);
   const [durationError, setDurationError] = useState(null);
   const [durationLoading, setDurationLoading] = useState(null);
-  const [durationMounted, setDurationMounted] = useState(true);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
+
     const fetchDuration = async () => {
       if (related && related.length > 0) {
         try {
           setDurationLoading(true);
           const arr = related.map(async (video) => {
             const vId = video.id.videoId;
-            const response = await youtubeVideoAPI(vId).get();
+            const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
 
             if (response.status === 200) {
               return durationStamp(response.data.items[0].contentDetails.duration);
@@ -32,9 +34,9 @@ const useDuration = (related, youtubeVideoAPI) => {
     };
     fetchDuration();
 
-    return () => setDurationMounted(false);
+    return () => source.cancel();
   }, [related, youtubeVideoAPI]);
 
-  return { duration, durationError, durationLoading, durationMounted };
+  return { duration, durationError, durationLoading };
 };
 export default useDuration;

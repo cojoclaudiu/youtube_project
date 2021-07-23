@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const useRelated = (videos, id) => {
   const [related, setRelated] = useState(null);
   const [relatedError, setRelatedError] = useState(null);
   const [relatedLoading, setRelatedLoading] = useState(null);
-  const [relatedMounted, setRelatedMounted] = useState(true);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
+
     const getRelatedVideos = async () => {
       try {
         setRelatedLoading(true);
-        const response = await videos(id).get();
+        const response = await videos(id).get('', { cancelToken: source.token });
         if (response.status === 200)
           setRelated(
             response.data.items.filter((obj) =>
@@ -25,10 +27,10 @@ const useRelated = (videos, id) => {
     };
     getRelatedVideos();
 
-    return () => setRelatedMounted(false);
+    return () => source.cancel();
   }, [videos, id]);
 
-  return { related, relatedError, relatedLoading, relatedMounted };
+  return { related, relatedError, relatedLoading };
 };
 
 export default useRelated;

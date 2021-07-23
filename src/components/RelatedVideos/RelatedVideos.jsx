@@ -15,7 +15,7 @@ import styles from './RelatedVideos.module.css';
 function RelatedVideos({ addId }) {
   const { related } = useRelated(relatedVideos, addId);
   const { duration } = useDuration(related, youtubeVideo);
-  const { views } = useViews(related, relatedVideos);
+  const { views } = useViews(related, youtubeVideo);
 
   return (
     <div className={styles.sidebarRelated}>

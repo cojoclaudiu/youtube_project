@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const getRandomAPI = () => 'AIzaSyA4hW5lVmX3vKfTFWj8-2YBcA5zb6t9JBE';
+const getRandomAPI = () => 'AIzaSyDfJgxBTYjAZsBhMS7cQaPDxTDXV3wef3w';
 
 export const source = axios.CancelToken.source();
 

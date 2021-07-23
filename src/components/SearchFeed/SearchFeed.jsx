@@ -25,46 +25,39 @@ function SearchFeed() {
   return (
     <div className={styles.feedContainer}>
       <div className={styles.itemsFeed}>
-        {searchResults &&
-          searchResults.length > 0 &&
-          searchResults.map(
-            (item, i) =>
-              item.id.videoId && (
-                <Link
-                  key={item.snippet.title + Math.random().toFixed(5)}
-                  to={`/watch?v=${item.id.videoId}`}
-                >
-                  <div className={styles.videoContainer}>
-                    <div className={styles.thumbnailContainer}>
-                      <img
-                        className={styles.thumbnailImage}
-                        src={
-                          width
-                            ? item.snippet.thumbnails.medium.url
-                            : item.snippet.thumbnails.high.url
-                        }
-                        alt={item.snippet.title}
-                      />
-                      <DurationVideo duration={duration && duration.length && duration[i]} />
-                    </div>
-                    <div className={styles.videoDetails}>
-                      <h2 className={styles.title}>{_.unescape(item.snippet.title)}</h2>
-                      <p className={styles.views}>{views && views.length && views[i]} views</p>
-                      <div className={styles.channel}>
-                        <img
-                          className={styles.channelAvatar}
-                          src={avatarURL && avatarURL.length > 0 && avatarURL[i]}
-                          alt={item.snippet.title}
-                        />
-                        <div className={styles.channelTitle}>{item.snippet.channelTitle}</div>
-                      </div>
+        {searchResults?.map((item, i) => (
+          <Link
+            key={item.snippet.title + Math.random().toFixed(5)}
+            to={`/watch?v=${item?.id?.videoId}`}
+          >
+            <div className={styles.videoContainer}>
+              <div className={styles.thumbnailContainer}>
+                <img
+                  className={styles.thumbnailImage}
+                  src={
+                    width ? item.snippet.thumbnails.medium.url : item.snippet.thumbnails.high.url
+                  }
+                  alt={item.snippet.title}
+                />
+                <DurationVideo duration={duration?.[i]} />
+              </div>
+              <div className={styles.videoDetails}>
+                <h2 className={styles.title}>{_.unescape(item.snippet.title)}</h2>
+                <p className={styles.views}>{views?.[i]} views</p>
+                <div className={styles.channel}>
+                  <img
+                    className={styles.channelAvatar}
+                    src={avatarURL?.[i]}
+                    alt={item.snippet.title}
+                  />
+                  <div className={styles.channelTitle}>{item.snippet.channelTitle}</div>
+                </div>
 
-                      <p className={styles.description}>{_.unescape(item.snippet.description)}</p>
-                    </div>
-                  </div>
-                </Link>
-              ),
-          )}
+                <p className={styles.description}>{_.unescape(item.snippet.description)}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

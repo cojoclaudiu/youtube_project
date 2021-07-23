@@ -11,25 +11,23 @@ const useDuration = (related, youtubeVideoAPI) => {
     const source = axios.CancelToken.source();
 
     const fetchDuration = async () => {
-      if (related && related.length > 0) {
-        try {
-          setDurationLoading(true);
-          const arr = related.map(async (video) => {
-            const vId = video.id.videoId;
-            const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
+      try {
+        setDurationLoading(true);
+        const arr = related?.map(async (video) => {
+          const vId = video.id.videoId;
+          const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
 
-            if (response.status === 200) {
-              return durationStamp(response.data.items[0].contentDetails.duration);
-            }
-            return false;
-          });
-          const resolved = await Promise.all(arr);
-          setDuration(...[resolved]);
-        } catch (err) {
-          setDurationError(err);
-        } finally {
-          setDurationLoading(false);
-        }
+          if (response.status === 200) {
+            return durationStamp(response.data.items[0].contentDetails.duration);
+          }
+          return false;
+        });
+        const resolved = await Promise.all(arr);
+        setDuration(...[resolved]);
+      } catch (err) {
+        setDurationError(err);
+      } finally {
+        setDurationLoading(false);
       }
     };
     fetchDuration();

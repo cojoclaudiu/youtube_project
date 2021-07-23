@@ -12,10 +12,9 @@ const useViews = (related, youtubeVideoAPI) => {
 
     /* START FETCH VIEWS */
     const fetchViews = async () => {
-      if (related && related.length > 0) {
         try {
           setViewsLoading(true);
-          const arr = related.map(async (video) => {
+          const arr = related?.map(async (video) => {
             const vId = video.id.videoId;
             const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
 
@@ -32,7 +31,6 @@ const useViews = (related, youtubeVideoAPI) => {
           setViewsLoading(false);
         }
       }
-    };
     /** End FETCH VIEWS */
     fetchViews();
 

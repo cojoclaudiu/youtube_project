@@ -26,9 +26,7 @@ function Videos() {
       <SortBy handleSelect={handleSelect} />
 
       <div className={styles.videosContainer}>
-        {store &&
-          store.length > 0 &&
-          store
+        {store
             .filter(
               (video) =>
                 (keyword === null && video) ||
@@ -49,7 +47,7 @@ function Videos() {
                   <div className={styles.videoDetails}>
                     <img
                       className={styles.avatarImg}
-                      src={avatarURL && avatarURL.length > 0 && avatarURL[index]}
+                      src={avatarURL?.[index]}
                       alt={video.snippet.title}
                     />
                     <div className={styles.titlesContainer}>

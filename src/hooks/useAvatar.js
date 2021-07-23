@@ -9,14 +9,13 @@ const useAvatar = (avatarAPI, videos) => {
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchAvatars = async () => {
-      if (videos && videos.length > 0) {
         try {
           setLoadingAvatar(true);
-          const arr = videos.map(async (video) => {
+          const arr = videos?.map(async (video) => {
             const chId = video.snippet.channelId;
             const response = await avatarAPI(chId).get('', { cancelToken: source.token });
             if (response.status === 200) {
-              return response.data.items[0].snippet.thumbnails.default.url;
+              return response.data.items[0].snippet?.thumbnails?.default?.url;
             }
             return false;
           });
@@ -28,7 +27,6 @@ const useAvatar = (avatarAPI, videos) => {
           setLoadingAvatar(false);
         }
       }
-    };
 
     fetchAvatars();
     return () => source.cancel();

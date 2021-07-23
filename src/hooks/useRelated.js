@@ -13,12 +13,13 @@ const useRelated = (videos, id) => {
       try {
         setRelatedLoading(true);
         const response = await videos(id).get('', { cancelToken: source.token });
-        if (response.status === 200)
+        if (response.status === 200) {
           setRelated(
             response.data.items.filter((obj) =>
               Object.prototype.hasOwnProperty.call(obj, 'snippet'),
             ),
           );
+        }
       } catch (err) {
         setRelatedError(err);
       } finally {

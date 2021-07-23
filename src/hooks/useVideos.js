@@ -14,6 +14,7 @@ const useVideos = (videosAPI) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [toggle, setToggle] = useState(true);
+  const [mount, setMount] = useState(null);
 
   const handleSelect = (e) => {
     e.preventDefault();
@@ -34,6 +35,8 @@ const useVideos = (videosAPI) => {
   };
 
   useEffect(() => {
+    setMount(true);
+
     const source = axios.CancelToken.source();
     /* START   FETCH VIDEODATA FUNCTION */
     const fetchVideos = async () => {
@@ -56,8 +59,13 @@ const useVideos = (videosAPI) => {
     /* FUNCTION CALLS */
     fetchVideos();
 
-    return () => source.cancel();
-  }, [videosAPI]);
+    return () => {
+      setMount(prev=> !prev);
+
+      console.log('hello');
+      console.log('how I am: ', mount);
+    };
+  }, [videosAPI, mount]);
 
   return { loading, error, videos, channelId, store, setStore, handleSelect, keyword };
 };

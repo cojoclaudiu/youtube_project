@@ -18,7 +18,7 @@ import SortBy from 'components/SortBy/SortBy';
 import styles from './Videos.module.css';
 
 function Videos() {
-  const {store, handleSelect, keyword } = useVideos(youtube);
+  const { store, handleSelect, keyword } = useVideos(youtube);
   const { avatarURL } = useAvatar(avatar, store);
 
   return (

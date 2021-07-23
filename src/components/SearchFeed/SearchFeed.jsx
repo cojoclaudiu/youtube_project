@@ -22,7 +22,6 @@ function SearchFeed() {
   const { avatarURL } = useAvatar(avatar, searchResults);
   const { views } = useViews(searchResults, youtubeVideo);
 
-
   return (
     <div className={styles.feedContainer}>
       <div className={styles.itemsFeed}>

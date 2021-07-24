@@ -9,21 +9,6 @@ const getRandomAPI = () => {
     'AIzaSyBNgl5w_NLUnAVU52K9qY5GMeVOnx7nHbE',
   ];
 
-  // const YTN = [
-  //   'AIzaSyDz9l33GwPNVEOPrLLm9c-q6xa_pU0wzQo',
-  //   'AIzaSyDKgdcN7L4BHXR4MYIIfZieHyNKOBTQKQ8',
-  //   'AIzaSyAhiQCgoImwdPNGTaEmftmTFaAQd-I6CjE',
-  //   'AIzaSyC2Jv6XH_hp9JVdwxSK31EtQX-MYBRBcX4',
-  //   'AIzaSyB5VtykiWl0YPGLrahY5XsF39JcjaOE7W8',
-  // ];
-
-  // const newQuota = [
-  //   'AIzaSyDonqbkYeWFLc6_BW3THeUj1tEs90_LKOY',
-  //   'AIzaSyBRsYuLbfYsBsl3B0oGCKz07KNffOwvTDs',
-  //   'AIzaSyCVdRzgM5kZFS-YOF67eAizPRq5H0LlPRc',
-  //   'AIzaSyDuNMiA_gxJBd5Ta2Lcc2DSX5CxiNjTFpk',
-  //   'AIzaSyCkfLsl_nQnEPZYgB_r_Vw8jHT2PtGvAGI',
-  // ];
   return APIsUSTD[Math.floor(Math.random(APIsUSTD.length) * APIsUSTD.length)];
 };
 

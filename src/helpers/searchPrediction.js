@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 
-const prediction = (term) => {
+const prediction = async (term) => {
   const GOOGLE_AC_URL = `https://clients1.google.com/complete/search`;
   return axios({
     // A YT undocumented API for auto suggest search queries

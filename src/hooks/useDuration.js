@@ -1,26 +1,42 @@
 import { useEffect, useState } from 'react';
-import { youtubeVideo } from 'api/youtube';
 import durationStamp from 'helpers/durationStamp';
+import axios from 'axios';
 
-const useDuration = (videos) => {
-  const [duration, setDuration] = useState([]);
+const useDuration = (related, youtubeVideoAPI) => {
+  const [duration, setDuration] = useState(null);
+  const [durationError, setDurationError] = useState(null);
+  const [durationLoading, setDurationLoading] = useState(null);
 
   useEffect(() => {
-    async function getVideoData() {
-      const arr = videos.map(async (video) => {
-        const vId = video.id.videoId;
+    const source = axios.CancelToken.source();
 
-        const response = await youtubeVideo(vId).get();
-        return durationStamp(response.data.items[0].contentDetails.duration);
-      });
-      const resolved = await Promise.all(arr);
+    const fetchDuration = async () => {
+      try {
+        setDurationLoading(true);
+        const arr = related?.map(async (video) => {
+          const vId = video.id.videoId;
+          const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
 
-      setDuration(...[resolved]);
-    }
-    getVideoData();
-  }, [videos]);
+          if (response.status === 200) {
+            return durationStamp(response.data.items[0].contentDetails.duration);
+          }
+          return false;
+        });
+        const resolved = await Promise.all(arr);
+        setDuration(...[resolved]);
+      } catch (err) {
+        setDurationError(err);
+      } finally {
+        setDurationLoading(false);
+      }
+    };
+    fetchDuration();
 
-  return duration;
+    return () => {
+      source.cancel('useDuration  got unmounted');
+    };
+  }, [related, youtubeVideoAPI]);
+
+  return { duration, durationError, durationLoading };
 };
-
 export default useDuration;

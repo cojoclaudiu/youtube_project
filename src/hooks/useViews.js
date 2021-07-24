@@ -1,24 +1,45 @@
 import { useEffect, useState } from 'react';
 import { statsFormat } from 'helpers/formatCounts';
-import { youtubeVideo } from 'api/youtube';
+import axios from 'axios';
 
-const useViews = (videos) => {
-  const [views, setViews] = useState([]);
+const useViews = (related, youtubeVideoAPI) => {
+  const [views, setViews] = useState(null);
+  const [viewsError, setViewsError] = useState(null);
+  const [viewsLoading, setViewsLoading] = useState(null);
 
   useEffect(() => {
-    const getViews = async () => {
-      const arr = videos.map(async (video) => {
-        const vId = video.id.videoId;
-        const response = await youtubeVideo(vId).get();
-        return statsFormat(response.data.items[0].statistics.viewCount);
-      });
-      const resolved = await Promise.all(arr);
-      setViews(...[resolved]);
-      return arr;
+    const source = axios.CancelToken.source();
+
+    /* START FETCH VIEWS */
+    const fetchViews = async () => {
+      try {
+        setViewsLoading(true);
+        const arr = related?.map(async (video) => {
+          const vId = video.id.videoId;
+          const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
+
+          if (response.status === 200) {
+            return statsFormat(response.data.items[0].statistics.viewCount);
+          }
+          return false;
+        });
+        const resolved = await Promise.all(arr);
+        setViews(...[resolved]);
+      } catch (err) {
+        setViewsError(err);
+      } finally {
+        setViewsLoading(false);
+      }
     };
-    getViews();
-  }, [videos]);
-  return views;
+    /** End FETCH VIEWS */
+    fetchViews();
+
+    return () => {
+      source.cancel('useViews  got unmounted');
+    };
+  }, [related, youtubeVideoAPI]);
+
+  return { views, viewsError, viewsLoading };
 };
 
 export default useViews;

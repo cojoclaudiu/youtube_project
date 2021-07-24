@@ -14,6 +14,7 @@ const useSearchResults = (searchVideo) => {
 
   useEffect(() => {
     const source = axios.CancelToken.source();
+
     const fetchSearchResults = async (query) => {
       try {
         setSearchLoading(true);
@@ -30,7 +31,9 @@ const useSearchResults = (searchVideo) => {
     };
     fetchSearchResults(searchQuery);
 
-    return () => source.cancel();
+    return () => {
+      source.cancel('useSearchResults  got unmounted');
+    };
   }, [searchVideo, searchQuery]);
 
   return { searchResults, searchError, searchLoading };

@@ -19,18 +19,14 @@ const useSearchInput = () => {
 
   const onInputSubmit = () => {
     history.push(`results?search=${input}`);
-    console.log(history);
   };
-
 
   // const onTypeSuggest = async () => {
   //   const response = await prediction(input);
   //   setSuggestions(response);
   // };
 
-  console.log(input);
-  console.log(suggestions);
-  return { onInputSubmit, onInputChange, input, suggestions, };
+  return { onInputSubmit, onInputChange, input, suggestions };
 };
 
 export default useSearchInput;

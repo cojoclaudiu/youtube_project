@@ -1,5 +1,6 @@
 export { default as SignInButton } from './Buttons/SignIn/SignInButton';
 export { default as Categories } from './Categories/Categories';
+export { default as DurationVideo } from './DurationVideo/DurationVideo';
 export { default as Header } from './Header/Header';
 export { default as HomeFeed } from './HomeFeed/HomeFeed';
 export { default as Logo } from './Logo/Logo';
@@ -11,6 +12,7 @@ export { default as SearchInputHeader } from './SearchInputHeader/SearchInputHea
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as SidebarOpen } from './SidebarOpen/SidebarOpen';
 export { default as SidebarClosed } from './SidebarClosed/SidebarClosed';
+export { default as SortBy } from './SortBy/SortBy';
 export { default as VideoPage } from './VideoPage/VideoPage';
 export { default as VideoPlayer } from './VideoPlayer/VideoPlayer';
 export { default as Videos } from './Videos/Videos';

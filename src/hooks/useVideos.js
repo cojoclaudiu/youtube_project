@@ -14,7 +14,6 @@ const useVideos = (videosAPI) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [toggle, setToggle] = useState(true);
-  const [mount, setMount] = useState(null);
 
   const handleSelect = (e) => {
     e.preventDefault();
@@ -35,8 +34,6 @@ const useVideos = (videosAPI) => {
   };
 
   useEffect(() => {
-    setMount(true);
-
     const source = axios.CancelToken.source();
     /* START   FETCH VIDEODATA FUNCTION */
     const fetchVideos = async () => {
@@ -60,12 +57,9 @@ const useVideos = (videosAPI) => {
     fetchVideos();
 
     return () => {
-      setMount(prev=> !prev);
-
-      console.log('hello');
-      console.log('how I am: ', mount);
+      source.cancel('useVideos  got unmounted');
     };
-  }, [videosAPI, mount]);
+  }, [videosAPI]);
 
   return { loading, error, videos, channelId, store, setStore, handleSelect, keyword };
 };

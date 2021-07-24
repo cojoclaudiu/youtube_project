@@ -45,7 +45,9 @@ const useVideoStats = (videoId, youtubeVideo) => {
 
     fetchVideoStats();
 
-    return () => source.cancel();
+    return () => {
+      source.cancel('useVideoStats  got unmounted');
+    };
   }, [videoId, youtubeVideo]);
 
   document.title = info.title;

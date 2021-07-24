@@ -9,27 +9,31 @@ const useAvatar = (avatarAPI, videos) => {
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchAvatars = async () => {
-        try {
-          setLoadingAvatar(true);
-          const arr = videos?.map(async (video) => {
-            const chId = video.snippet.channelId;
-            const response = await avatarAPI(chId).get('', { cancelToken: source.token });
-            if (response.status === 200) {
-              return response.data.items[0].snippet?.thumbnails?.default?.url;
-            }
-            return false;
-          });
-          const resolved = await Promise.all(arr);
-          setAvatarURL(...[resolved]);
-        } catch (err) {
-          setErrorAvatar(err);
-        } finally {
-          setLoadingAvatar(false);
-        }
+      try {
+        setLoadingAvatar(true);
+        const promises = videos?.map((video) => {
+          const chId = video.snippet.channelId;
+          return avatarAPI(chId)
+            .get('', { cancelToken: source.token })
+            .then((res) =>
+              res.status === 200 ? res.data.items[0].snippet?.thumbnails?.default?.url ?? '' : '',
+            );
+        });
+        const resolved = (await Promise.all(promises)).filter((x) => x !== '');
+        setAvatarURL(resolved);
+      } catch (err) {
+        setErrorAvatar(err);
+        setAvatarURL(null);
+      } finally {
+        setLoadingAvatar(false);
       }
+    };
 
     fetchAvatars();
-    return () => source.cancel();
+
+    return () => {
+      source.cancel('useAvatar got unmounted');
+    };
   }, [avatarAPI, videos]);
   return {
     avatarURL,

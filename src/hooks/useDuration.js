@@ -32,7 +32,9 @@ const useDuration = (related, youtubeVideoAPI) => {
     };
     fetchDuration();
 
-    return () => source.cancel();
+    return () => {
+      source.cancel('useDuration  got unmounted');
+    };
   }, [related, youtubeVideoAPI]);
 
   return { duration, durationError, durationLoading };

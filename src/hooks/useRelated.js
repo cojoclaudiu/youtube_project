@@ -28,7 +28,9 @@ const useRelated = (videos, id) => {
     };
     getRelatedVideos();
 
-    return () => source.cancel();
+    return () => {
+      source.cancel('useRelated  got unmounted');
+    };
   }, [videos, id]);
 
   return { related, relatedError, relatedLoading };

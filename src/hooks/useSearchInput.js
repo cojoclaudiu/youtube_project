@@ -39,9 +39,9 @@ const useSearchInput = () => {
   // INPUT SUBMIT / BUTTON SUBMIT
   const onInputSubmit = (e) => {
     e.preventDefault();
-    history.push(`results?search=${input}`);
+    history.replace(`results?search=${input}`);
   };
-
+  console.log(input);
   // Debounce for search input
   const debouncedInputChanged = useMemo(() => debounce(onInputChange, 200), [onInputChange]);
   useEffect(() => () => debouncedInputChanged.cancel(), [debouncedInputChanged]);
@@ -51,7 +51,7 @@ const useSearchInput = () => {
   // I want to set the sugggestion if you click inside the input change suggestions
   const onSelectedPredictionSubmit = (e) => {
     e.preventDefault();
-    history.push(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
+    history.replace(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
     setVisible((prev) => !prev);
   };
 

@@ -41,7 +41,6 @@ const useSearchInput = () => {
     e.preventDefault();
     history.replace(`results?search=${input}`);
   };
-  console.log(input);
   // Debounce for search input
   const debouncedInputChanged = useMemo(() => debounce(onInputChange, 200), [onInputChange]);
   useEffect(() => () => debouncedInputChanged.cancel(), [debouncedInputChanged]);

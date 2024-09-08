@@ -1,8 +1,8 @@
-import React, { createContext, useState } from 'react';
+import { createContext, PropsWithChildren, useState } from 'react';
 
 export const SidebarContext = createContext();
 
-export const SidebarProvider = ({ children }) => {
+export const SidebarProvider = ({ children }: PropsWithChildren) => {
   const [sidebar, setSidebar] = useState();
 
   return (

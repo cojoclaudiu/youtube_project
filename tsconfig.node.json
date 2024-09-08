@@ -19,5 +19,5 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "src"
   },
-  "include": ["vite.config.mts"]
+  "include": ["vite.config.ts"]
 }

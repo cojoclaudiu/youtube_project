@@ -1,21 +1,21 @@
-import useWindowSize from 'hooks/useWindowSize';
+import { Header, Sidebar, Categories, HomeFeed } from 'components';
 import { SidebarProvider } from 'context/SidebarContext';
-import { Header, Sidebar, SearchFeed } from 'components';
 import { HomeVideosProvider } from 'context/HomeVideosContext';
+import { Fragment } from 'react/jsx-runtime';
 
-function Results() {
-  const width = useWindowSize();
+function Homepage() {
   return (
-    <>
+    <Fragment>
       <SidebarProvider>
         <HomeVideosProvider>
           <Header />
+          <HomeFeed />
         </HomeVideosProvider>
-        {width > 550 && <Sidebar />}
+        <Sidebar />
       </SidebarProvider>
-      <SearchFeed />
-    </>
+      <Categories />
+    </Fragment>
   );
 }
 
-export default Results;
+export default Homepage;

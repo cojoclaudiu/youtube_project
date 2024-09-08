@@ -8,4 +8,10 @@
   position: sticky;
   height: calc(100vh - var(--headerHeight));
   padding-top: 10px;
+
+  @media only screen and (max-width: 550px) {
+    .menuRgt {
+      display: none;
+    }
+  }
 }

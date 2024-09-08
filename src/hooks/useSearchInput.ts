@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback, useContext, useMemo } from 'react';
-import { useHistory } from 'react-router-dom';
 import debounce from 'lodash.debounce';
-import prediction from 'helpers/searchPrediction';
+import { prediction } from 'helpers/searchPrediction';
 import { HomeVideosContext } from 'context/HomeVideosContext';
+import { useNavigate } from 'react-router-dom';
 
 const useSearchInput = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { setKeyword } = useContext(HomeVideosContext);
 
   const [input, setInput] = useState('');
@@ -39,7 +39,7 @@ const useSearchInput = () => {
   // INPUT SUBMIT / BUTTON SUBMIT
   const onInputSubmit = (e) => {
     e.preventDefault();
-    history.replace(`results?search=${input}`);
+    navigate(`results?search=${input}`, { replace: true });
   };
   // Debounce for search input
   const debouncedInputChanged = useMemo(() => debounce(onInputChange, 200), [onInputChange]);
@@ -50,7 +50,7 @@ const useSearchInput = () => {
   // I want to set the sugggestion if you click inside the input change suggestions
   const onSelectedPredictionSubmit = (e) => {
     e.preventDefault();
-    history.replace(`results?search=${e.target.textContent}`.replace(/ /g, '+'));
+    navigate(`results?search=${e.target.textContent}`.replace(/ /g, '+'), { replace: true });
     setVisible((prev) => !prev);
   };
 

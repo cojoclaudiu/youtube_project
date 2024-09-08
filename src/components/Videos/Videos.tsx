@@ -1,33 +1,31 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import durationStamp from 'helpers/durationStamp';
 import { statsFormat } from 'helpers/formatCounts';
 
-import useVideos from 'hooks/useVideos';
-import useAvatar from 'hooks/useAvatar';
-import { youtube, avatar } from 'api/youtube';
-
 import { DurationVideo } from 'components/DurationVideo';
-import { SortBy } from 'components/SortBy';
 
 import styles from './Videos.module.css';
 
+import { ChannelAvatar } from 'components/ChannelAvatar';
+import { useGetVideosQuery } from 'api/endpoints/videos.api';
+
 function Videos() {
-  const { store, handleSelect, keyword } = useVideos(youtube);
-  const { avatarURL } = useAvatar(avatar, store);
+  const { data } = useGetVideosQuery();
+  const videos = data?.items;
+
   return (
     <Fragment>
-      <SortBy handleSelect={handleSelect} />
+      {/* <SortBy handleSelect={handleSelect} /> */}
 
       <div className={styles.videosContainer}>
-        {store
-          .filter(
-            (video) =>
-              (keyword === null && video) ||
-              (keyword !== null && video.snippet.title.toLowerCase().includes(keyword)),
-          )
-          .map((video, index) => (
-            <Link key={video.id} to={`/watch?v=${video.id}`}>
+        {videos
+          // ?.filter(
+          //   (video) =>
+          //     (keyword === null && video) ||
+          //     (keyword !== null && video.snippet.title.toLowerCase().includes(keyword)),
+          // )
+          ?.map((video) => (
+            <Link key={video.id.videoId} to={`/watch?v=${video.id}`}>
               <div className={styles.videoContainer}>
                 <div className={styles.thumbnailContainer}>
                   <img
@@ -36,14 +34,11 @@ function Videos() {
                     alt={video.snippet.title}
                     loading="lazy"
                   />
-                  <DurationVideo duration={durationStamp(video.contentDetails.duration)} />
+                  <DurationVideo video={video} />
                 </div>
                 <div className={styles.videoDetails}>
-                  <img
-                    className={styles.avatarImg}
-                    src={avatarURL?.[index]}
-                    alt={video.snippet.title}
-                  />
+                  <ChannelAvatar className={styles.avatarImg} video={video} />
+
                   <div className={styles.titlesContainer}>
                     <h3 className={styles.videoTitle}>{video.snippet.title}</h3>
                     <div className={styles.channelTitle}>{video.snippet.channelTitle}</div>

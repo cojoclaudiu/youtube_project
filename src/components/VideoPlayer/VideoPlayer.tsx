@@ -1,19 +1,17 @@
-import YouTube from 'react-youtube';
+import YoutubePlayer from 'react-player/youtube';
 
 import styles from './VideoPlayer.module.css';
+import { useVideoId } from 'hooks/useVideoId';
 
-function VideoPlayer({ videoId }) {
-  const opts = {
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-      modestbranding: 1,
-      rel: 0,
-      showinfo: 0,
-      ecver: 2,
-    },
-  };
-  return <YouTube opts={opts} className={styles.videoPlayer} videoId={videoId} />;
+function VideoPlayer() {
+  const { videoId } = useVideoId();
+  const url = `https://www.youtube.com/watch?v=${videoId}`;
+
+  return (
+    <div className={styles.videoPlayer}>
+      <YoutubePlayer url={url} width="100%" height="100%" playing controls />
+    </div>
+  );
 }
 
 export { VideoPlayer };

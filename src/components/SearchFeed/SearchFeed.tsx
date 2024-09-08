@@ -1,60 +1,78 @@
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import { youtubeVideo, avatar, searchVideo } from 'api/youtube';
 
-import useWindowSize from 'hooks/useWindowSize';
-import useSearchResults from 'hooks/useSearchResults';
-import useDuration from 'hooks/useDuration';
-import useAvatar from 'hooks/useAvatar';
-import useViews from 'hooks/useViews';
-
-import { DurationVideo } from 'components';
-
+import { useSearchFeedResults } from 'hooks/useSearchFeedResults';
 import styles from './SearchFeed.module.css';
+import { DurationVideo } from 'components/DurationVideo';
+import { useGetVideoDetailsQuery } from 'api/endpoints/video.api';
+import { ChannelAvatar } from 'components/ChannelAvatar';
+import { skipToken } from '@reduxjs/toolkit/query';
+import { ViewsCount } from 'components/ViewsCount';
+import { VideoItemSchema } from 'schema/videoItem.schema';
+
+interface VideoProps {
+  videoId: string;
+}
+
+interface ImageProps {
+  item: VideoItemSchema;
+}
+
+function Image({ item }: ImageProps) {
+  return (
+    <img
+      className={styles.thumbnailImage}
+      src={item.snippet.thumbnails.high.url ?? item.snippet.thumbnails.default.url}
+      srcSet={`${item.snippet.thumbnails.medium.url} 550w, ${item.snippet.thumbnails.high.url} 1024w`}
+      sizes="(max-width: 550px) 550px, 1024px"
+      alt={item.snippet.title}
+    />
+  );
+}
+
+function Duration({ videoId }: VideoProps) {
+  const { data } = useGetVideoDetailsQuery(videoId ? { videoId } : skipToken);
+
+  return data && <DurationVideo video={data.items[0]} />;
+}
+
+function ChannelSearchImage({ videoId }: VideoProps) {
+  const { data } = useGetVideoDetailsQuery(videoId ? { videoId } : skipToken);
+
+  return data && <ChannelAvatar className={styles.channelAvatar} video={data.items[0]} />;
+}
 
 function SearchFeed() {
-  const width = useWindowSize() > 550;
-  const { searchResults } = useSearchResults(searchVideo);
-  const { duration } = useDuration(searchResults, youtubeVideo);
-  const { avatarURL } = useAvatar(avatar, searchResults);
-  const { views } = useViews(searchResults, youtubeVideo);
+  const { searchFeedResults } = useSearchFeedResults();
 
   return (
     <div className={styles.feedContainer}>
       <div className={styles.itemsFeed}>
-        {searchResults?.map((item, i) => (
-          <Link
-            key={item.snippet.title + Math.random().toFixed(5)}
-            to={`/watch?v=${item?.id?.videoId}`}
-          >
-            <div className={styles.videoContainer}>
-              <div className={styles.thumbnailContainer}>
-                <img
-                  className={styles.thumbnailImage}
-                  src={
-                    width ? item.snippet.thumbnails.medium.url : item.snippet.thumbnails.high.url
-                  }
-                  alt={item.snippet.title}
-                />
-                <DurationVideo duration={duration?.[i]} />
-              </div>
-              <div className={styles.videoDetails}>
-                <h2 className={styles.title}>{_.unescape(item.snippet.title)}</h2>
-                <p className={styles.views}>{views?.[i]} views</p>
-                <div className={styles.channel}>
-                  <img
-                    className={styles.channelAvatar}
-                    src={avatarURL?.[i]}
-                    alt={item.snippet.title}
-                  />
-                  <div className={styles.channelTitle}>{item.snippet.channelTitle}</div>
-                </div>
+        {searchFeedResults?.map((item) => {
+          const videoId = item.id.videoId;
 
-                <p className={styles.description}>{_.unescape(item.snippet.description)}</p>
+          return (
+            <Link key={videoId} to={`/watch?v=${videoId}`}>
+              <div className={styles.videoContainer}>
+                <div className={styles.thumbnailContainer}>
+                  <Image item={item} />
+                  <Duration videoId={videoId} />
+                </div>
+                <div className={styles.videoDetails}>
+                  <h2 className={styles.title}>{_.unescape(item.snippet.title)}</h2>
+                  <ViewsCount className={styles.views} videoId={videoId} />
+
+                  <div className={styles.channel}>
+                    <ChannelSearchImage videoId={videoId} />
+                    <div className={styles.channelTitle}>{item.snippet.channelTitle}</div>
+                  </div>
+
+                  <p className={styles.description}>{_.unescape(item.snippet.description)}</p>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

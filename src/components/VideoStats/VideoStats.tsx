@@ -1,12 +1,13 @@
 import { viewsFormat, statsFormat } from 'helpers/formatCounts';
 import { MdThumbUp, MdThumbDown, MdPlaylistAdd, MdMoreHoriz, MdShare } from 'react-icons/md';
-import useVideoStats from 'hooks/useVideosStats';
-import { youtubeVideo } from 'api/youtube';
+import { useVideoStats } from 'hooks/useVideosStats';
 
 import styles from './VideoStats.module.css';
+import { useToggleLikeDislike } from 'hooks/useToggleLikeDislike';
 
-function VideoStats({ videoId }) {
-  const { handleLike, handleDislike, info, status } = useVideoStats(videoId, youtubeVideo);
+function VideoStats() {
+  const { info } = useVideoStats();
+  const { handleLike, handleDislike, status } = useToggleLikeDislike();
 
   return (
     <div className={styles.videoStats}>
@@ -25,8 +26,10 @@ function VideoStats({ videoId }) {
             onKeyDown={handleLike}
           >
             <div className={styles.tooltip}>
-              <MdThumbUp className={status.active && status.like && styles.clicked} />
-              <span className={styles.tooltiptext}>{status.active ? 'Unlike' : 'I like this'}</span>
+              <MdThumbUp className={status === 'like' ? styles.clicked : ''} />
+              <span className={styles.tooltiptext}>
+                {status === 'like' ? 'Unlike' : 'I like this'}
+              </span>
             </div>
             {statsFormat(info.likes)}
           </div>
@@ -39,9 +42,8 @@ function VideoStats({ videoId }) {
             onKeyDown={handleDislike}
           >
             <div className={styles.tooltip}>
-              <MdThumbDown className={status.active && status.dislike && styles.clicked} />
+              <MdThumbDown className={status === 'dislike' ? styles.clicked : ''} />
               <span className={styles.tooltiptext}>I dislike this</span>
-              {statsFormat(info.dislikes)}
             </div>
           </div>
 

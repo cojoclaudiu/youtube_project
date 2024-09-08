@@ -1,4 +1,3 @@
-import useWindowSize from 'hooks/useWindowSize';
 import { SignInButton } from 'components';
 import { IoAppsSharp } from 'react-icons/io5';
 import { BsThreeDotsVertical } from 'react-icons/bs';
@@ -6,8 +5,6 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import styles from './RightMenu.module.css';
 
 function RightMenu() {
-  const width = useWindowSize() < 935;
-
   return (
     <div className={styles.menuRgt}>
       <div className={styles.menuApps}>
@@ -22,7 +19,7 @@ function RightMenu() {
         </button>
       </div>
 
-      {!width && <SignInButton />}
+      <SignInButton />
     </div>
   );
 }

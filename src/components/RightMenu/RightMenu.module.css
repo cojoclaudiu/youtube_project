@@ -12,7 +12,13 @@
   }
 }
 
-@media only screen and (max-width: 545) {
+@media only screen and (max-width: 730px) {
+  .menuRgt {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 545px) {
   .menuRgt {
     display: none;
   }

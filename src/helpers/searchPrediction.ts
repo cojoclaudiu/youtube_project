@@ -4,7 +4,6 @@ import jsonpAdapter from 'axios-jsonp';
 const prediction = async (term) => {
   const GOOGLE_AC_URL = `https://clients1.google.com/complete/search`;
   return axios({
-    // A YT undocumented API for auto suggest search queries
     url: GOOGLE_AC_URL,
     adapter: jsonpAdapter,
     params: {
@@ -21,4 +20,4 @@ const prediction = async (term) => {
   });
 };
 
-export default prediction;
+export { prediction };

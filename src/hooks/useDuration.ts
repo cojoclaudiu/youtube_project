@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import durationStamp from 'helpers/durationStamp';
+import { durationStamp } from 'helpers/durationStamp';
 import axios from 'axios';
 
 const useDuration = (related, youtubeVideoAPI) => {

@@ -1,21 +1,20 @@
-import { Header, Sidebar, VideoPage } from 'components';
-import useWindowSize from 'hooks/useWindowSize';
 import { SidebarProvider } from 'context/SidebarContext';
+import { Header, Sidebar, SearchFeed } from 'components';
 import { HomeVideosProvider } from 'context/HomeVideosContext';
+import { Fragment } from 'react';
 
-function Watch() {
-  const width = useWindowSize();
+function Results() {
   return (
-    <>
+    <Fragment>
       <SidebarProvider>
         <HomeVideosProvider>
           <Header />
         </HomeVideosProvider>
-        {width > 550 && <Sidebar />}
+        <Sidebar />
       </SidebarProvider>
-      <VideoPage />
-    </>
+      <SearchFeed />
+    </Fragment>
   );
 }
 
-export default Watch;
+export default Results;

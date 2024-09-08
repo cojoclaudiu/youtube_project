@@ -19,7 +19,7 @@ const useViews = (related, youtubeVideoAPI) => {
           const response = await youtubeVideoAPI(vId).get('', { cancelToken: source.token });
 
           if (response.status === 200) {
-            return statsFormat(response.data.items[0].statistics.viewCount);
+            return statsFormat(response.data.items);
           }
           return false;
         });

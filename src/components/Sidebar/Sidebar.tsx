@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { SidebarContext } from 'context/SidebarContext';
 import useWindowSize from 'hooks/useWindowSize';
 import { SidebarOpen, SidebarClosed } from 'components';

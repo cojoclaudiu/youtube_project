@@ -1,58 +1,64 @@
-import { useState, useEffect, useCallback, useContext, useMemo } from 'react';
-import debounce from 'lodash.debounce';
+import {
+  useState,
+  useCallback,
+  useEffect,
+  ChangeEvent,
+  FocusEvent,
+  FormEvent,
+  MouseEvent,
+} from 'react';
 import { prediction } from 'helpers/searchPrediction';
-import { HomeVideosContext } from 'context/HomeVideosContext';
 import { useNavigate } from 'react-router-dom';
+import { useDebounceValue } from './useDebounceValue';
 
 const useSearchInput = () => {
   const navigate = useNavigate();
-  const { setKeyword } = useContext(HomeVideosContext);
 
   const [input, setInput] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [visible, setVisible] = useState(false);
+  const [debouncedInput] = useDebounceValue(input, 200);
 
-  const eventOnBlur = (e) => {
-    if (!e.currentTarget.contains(e.relatedTarget)) {
-      setVisible((prev) => !prev);
-    }
-  };
-
-  // SET INPUT ON CHANGE
-  const onInputChange = useCallback(
-    (e) => {
-      e.preventDefault();
-      setInput(e.target.value);
-      setKeyword(e.target.value.toLowerCase());
-
-      // GET PREDICTIONS
-      const onTypeSuggest = async () => {
-        const response = await prediction(input);
+  // When debounced input changes, fetch suggestions
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      if (debouncedInput) {
+        const response = await prediction(debouncedInput);
         setSuggestions(response);
-      };
+      }
+    };
 
-      onTypeSuggest();
+    fetchSuggestions();
+  }, [debouncedInput]);
+
+  const onInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  }, []);
+
+  const onInputSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      navigate(`/results?search_query=${input.replace(/ /g, '+')}`, { replace: true });
     },
-    [input, setKeyword],
+    [input, navigate],
   );
 
-  // INPUT SUBMIT / BUTTON SUBMIT
-  const onInputSubmit = (e) => {
-    e.preventDefault();
-    navigate(`results?search=${input}`, { replace: true });
-  };
-  // Debounce for search input
-  const debouncedInputChanged = useMemo(() => debounce(onInputChange, 200), [onInputChange]);
-  useEffect(() => () => debouncedInputChanged.cancel(), [debouncedInputChanged]);
+  const onSelectedPredictionSubmit = useCallback(
+    (e: MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.preventDefault();
+      const selectedText = (e.target as HTMLElement).textContent || '';
+      setInput(selectedText);
+      navigate(`/results?search_query=${selectedText.replace(/ /g, '+')}`, { replace: true });
+      setVisible(false);
+    },
+    [navigate],
+  );
 
-  // ONSELECTED PREDICTION SUBMIT I WANT TO PUSH SELECTED ITEM INTO HISTORY ADDRESS
-  // e prevent default on submit
-  // I want to set the sugggestion if you click inside the input change suggestions
-  const onSelectedPredictionSubmit = (e) => {
-    e.preventDefault();
-    navigate(`results?search=${e.target.textContent}`.replace(/ /g, '+'), { replace: true });
-    setVisible((prev) => !prev);
-  };
+  const eventOnBlur = useCallback((e: FocusEvent<HTMLDivElement, Element>) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setVisible(false);
+    }
+  }, []);
 
   return {
     onSelectedPredictionSubmit,
@@ -60,9 +66,10 @@ const useSearchInput = () => {
     eventOnBlur,
     suggestions,
     visible,
-    debouncedInputChanged,
+    onInputChange,
     setVisible,
     input,
+    setInput,
   };
 };
 

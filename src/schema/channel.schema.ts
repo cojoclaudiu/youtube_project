@@ -1,8 +1,8 @@
-export interface AvatarSchema {
+export interface ChannelSchema {
   kind: string;
   etag: string;
   pageInfo: PageInfo;
-  items: Item[];
+  items: ChannelItemSchema[];
 }
 
 export interface PageInfo {
@@ -10,7 +10,7 @@ export interface PageInfo {
   resultsPerPage: number;
 }
 
-export interface Item {
+export interface ChannelItemSchema {
   kind: string;
   etag: string;
   id: string;

@@ -72,6 +72,14 @@
 .thumbnailContainer {
   display: flex;
   position: relative;
+  max-width: 500px;
+  max-height: 240px;
+}
+
+.videoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .timeStamp {

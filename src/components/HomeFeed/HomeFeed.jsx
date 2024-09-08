@@ -1,4 +1,3 @@
-import React from 'react';
 import { Videos } from 'components';
 
 import styles from './HomeFeed.module.css';

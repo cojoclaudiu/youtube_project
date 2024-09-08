@@ -1,4 +1,3 @@
-import React from 'react';
 import { viewsFormat, statsFormat } from 'helpers/formatCounts';
 import { MdThumbUp, MdThumbDown, MdPlaylistAdd, MdMoreHoriz, MdShare } from 'react-icons/md';
 import useVideoStats from 'hooks/useVideosStats';

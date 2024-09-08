@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './SidebarOpen.module.css';
 import SidebarBox1 from './SidebarBox1/SidebarBox1';
 import SidebarBox2 from './SidebarBox2/SidebarBox2';

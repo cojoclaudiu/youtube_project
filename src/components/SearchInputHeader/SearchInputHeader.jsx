@@ -1,4 +1,3 @@
-import React from 'react';
 import useSearchInput from 'hooks/useSearchInput';
 import { AiOutlineSearch } from 'react-icons/ai';
 

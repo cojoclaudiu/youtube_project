@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import durationStamp from 'helpers/durationStamp';
 import { statsFormat } from 'helpers/formatCounts';

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './DurationVideo.module.css';
 
 export default function DurationVideo({ duration }) {

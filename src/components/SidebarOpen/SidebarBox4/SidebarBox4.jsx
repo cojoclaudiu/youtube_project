@@ -1,4 +1,3 @@
-import React from 'react';
 import { IoMusicalNotesSharp, IoTrophy, IoRadioOutline } from 'react-icons/io5';
 import { RiGamepadFill, RiArticleFill } from 'react-icons/ri';
 import { GiVrHeadset } from 'react-icons/gi';

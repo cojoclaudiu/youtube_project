@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './SidebarBox3.module.css';
 import SignInButton from '../../Buttons/SignIn/SignInButton';
 

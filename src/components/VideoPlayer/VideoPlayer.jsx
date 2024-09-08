@@ -1,4 +1,3 @@
-import React from 'react';
 import YouTube from 'react-youtube';
 
 import styles from './VideoPlayer.module.css';

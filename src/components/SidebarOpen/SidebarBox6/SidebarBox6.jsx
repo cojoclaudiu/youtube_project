@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { IoRadioOutline, IoLogoYoutube } from 'react-icons/io5';
 import styles from './SidebarBox6.module.css';
 

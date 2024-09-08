@@ -1,4 +1,3 @@
-import React from 'react';
 import { Header, Sidebar, VideoPage } from 'components';
 import useWindowSize from 'hooks/useWindowSize';
 import { SidebarProvider } from 'context/SidebarContext';

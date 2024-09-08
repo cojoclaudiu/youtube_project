@@ -1,6 +1,5 @@
 // import styles from './SidebarBox1.module.css';
 import '../index.css';
-import React from 'react';
 
 // Project Icons
 import { MdExplore, MdSubscriptions, MdHome } from 'react-icons/md';

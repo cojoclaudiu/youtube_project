@@ -1,4 +1,3 @@
-import React from 'react';
 import { BsPlusCircleFill } from 'react-icons/bs';
 
 const SidebarBox5 = () => (

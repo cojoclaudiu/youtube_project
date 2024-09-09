@@ -1,4 +1,4 @@
-import durationStamp from './durationStamp';
+import { durationStamp } from './durationStamp';
 
 test('durationStamp', () => {
   expect(durationStamp('PT17M')).toBe('17:00');

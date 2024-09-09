@@ -76,7 +76,7 @@ export interface ContentDetails {
   regionRestriction?: RegionRestriction;
 }
 
-export interface ContentRating {}
+export type ContentRating = object;
 
 export interface RegionRestriction {
   blocked?: string[];

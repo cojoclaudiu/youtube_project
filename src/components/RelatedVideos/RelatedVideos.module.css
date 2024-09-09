@@ -12,17 +12,20 @@
   grid-template-columns: 168px 1fr;
 }
 
-.thumbnailImage {
-  width: 168px;
-  height: 94px;
-  object-fit: cover;
-}
-
 .thumbnailContainer {
   display: flex;
   width: 168px;
   height: 94px;
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
 }
 
 .timeStamp {

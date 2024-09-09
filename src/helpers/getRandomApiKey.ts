@@ -9,7 +9,7 @@ const getRandomAPI = () => {
 
   const randomKey = APIsUSTD[Math.floor(Math.random() * APIsUSTD.length)];
 
-  return import.meta.env.VITE_API_KEY_2;
+  return randomKey;
 };
 
 export { getRandomAPI };

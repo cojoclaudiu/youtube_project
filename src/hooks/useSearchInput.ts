@@ -44,7 +44,7 @@ const useSearchInput = () => {
   );
 
   const onSelectedPredictionSubmit = useCallback(
-    (e: MouseEvent<HTMLDivElement, MouseEvent>) => {
+    (e: MouseEvent) => {
       e.preventDefault();
       const selectedText = (e.target as HTMLElement).textContent || '';
       setInput(selectedText);

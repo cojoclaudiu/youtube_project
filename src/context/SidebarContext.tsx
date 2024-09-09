@@ -1,11 +1,31 @@
-import { createContext, PropsWithChildren, useState } from 'react';
+import {
+  createContext,
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react';
 
-export const SidebarContext = createContext();
+interface SidebarContextState {
+  sidebar: boolean;
+  setSidebar: Dispatch<SetStateAction<boolean>>;
+}
 
-export const SidebarProvider = ({ children }: PropsWithChildren) => {
-  const [sidebar, setSidebar] = useState();
+const SidebarContext = createContext({} as SidebarContextState);
+
+const SidebarProvider = ({ children }: PropsWithChildren) => {
+  const [sidebar, setSidebar] = useState(false);
 
   return (
     <SidebarContext.Provider value={{ sidebar, setSidebar }}>{children}</SidebarContext.Provider>
   );
 };
+
+const useSidebarContext = () => {
+  const context = useContext(SidebarContext);
+
+  return context;
+};
+
+export { SidebarProvider, useSidebarContext };

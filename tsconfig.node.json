@@ -4,6 +4,7 @@
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["vite/client", "vitest/globals", "vitest/jsdom"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -19,5 +20,5 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "src"
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "axios-jsonp.d.ts"]
 }

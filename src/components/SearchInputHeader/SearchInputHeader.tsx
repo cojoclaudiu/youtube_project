@@ -7,12 +7,13 @@ function SearchInputHeader() {
   const {
     eventOnBlur,
     onInputSubmit,
-    debouncedInputChanged,
+    onInputChange,
     setVisible,
     visible,
     suggestions,
     onSelectedPredictionSubmit,
     input,
+    setInput,
   } = useSearchInput();
 
   return (
@@ -25,10 +26,11 @@ function SearchInputHeader() {
             className={styles.searchInput}
             type="search"
             placeholder="Search"
-            onChange={debouncedInputChanged}
+            onChange={onInputChange}
+            value={input}
             onFocus={() => setVisible(true)}
           />
-          <button type="button" className={styles.searchBtn} onClick={onInputSubmit}>
+          <button type="submit" className={styles.searchBtn}>
             <AiOutlineSearch />
           </button>
         </form>
@@ -37,16 +39,11 @@ function SearchInputHeader() {
             {suggestions.length === 0 && visible && (
               <div className={styles.placeholderItem}>Start typing...</div>
             )}
-            <div
-              role="button"
-              tabIndex={0}
-              onClick={onSelectedPredictionSubmit}
-              onKeyDown={onSelectedPredictionSubmit}
-            >
+            <div role="button" tabIndex={0} onClick={onSelectedPredictionSubmit}>
               {input.length !== 0 &&
                 suggestions.length > 0 &&
                 suggestions.map((item) => (
-                  <div key={item.replace(/ /g, '+')} className={styles.suggestionItem}>
+                  <div key={item} className={styles.suggestionItem} onClick={() => setInput(item)}>
                     {item}
                   </div>
                 ))}

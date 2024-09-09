@@ -3,11 +3,12 @@
   grid-column: 1/ -1;
   grid-row: 1/2;
   display: grid;
-  position: sticky;
   grid-template-columns: 70px calc(100% - 70px);
   align-items: center;
   height: var(--headerHeight);
-  z-index: 31;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .headerMenu {

@@ -1,6 +1,6 @@
 import { durationStamp } from 'helpers/durationStamp';
 import styles from './DurationVideo.module.css';
-import { VideoItemSchema } from 'schema/videos.schema';
+import { VideoItemSchema } from 'schema/videoItem.schema';
 
 interface DurationVideoProps {
   video: VideoItemSchema;

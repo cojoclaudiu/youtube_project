@@ -1,7 +1,8 @@
 import YoutubePlayer from 'react-player/youtube';
 
-import styles from './VideoPlayer.module.css';
 import { useVideoId } from 'hooks/useVideoId';
+
+import styles from './VideoPlayer.module.css';
 
 function VideoPlayer() {
   const { videoId } = useVideoId();

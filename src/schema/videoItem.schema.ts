@@ -1,10 +1,7 @@
 export interface VideoItemSchema {
   kind: string;
   etag: string;
-  id: {
-    kind: string;
-    videoId: string;
-  };
+  id: string;
   snippet: Snippet;
   contentDetails: ContentDetails;
   statistics: Statistics;
@@ -79,7 +76,7 @@ export interface ContentDetails {
   regionRestriction?: RegionRestriction;
 }
 
-export interface ContentRating {}
+export type ContentRating = object;
 
 export interface RegionRestriction {
   blocked?: string[];

@@ -1,6 +1,10 @@
-const durationStamp = (duration) => {
+const durationStamp = (duration: string) => {
   const unChanged = duration;
-  const durationArray = duration.match(/\d+/g).map(Number);
+  const durationArray = duration.match(/\d+/g)?.map(Number);
+
+  if (!durationArray) {
+    return 'n/a';
+  }
 
   if (durationArray.length === 1 && unChanged.includes('M')) {
     const [min] = durationArray;
@@ -41,7 +45,8 @@ const durationStamp = (duration) => {
     }
     return `${hour}:${min}:${sec}`;
   }
-  return `n/a`;
+
+  return 'n/a';
 };
 
 export { durationStamp };

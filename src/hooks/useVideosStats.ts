@@ -5,9 +5,9 @@ const useVideoStats = () => {
 
   return {
     info: {
-      title: currentVideo?.snippet.title,
-      likes: currentVideo?.statistics.likeCount,
-      views: currentVideo?.statistics.viewCount,
+      title: currentVideo?.snippet.title || '',
+      likes: Number(currentVideo?.statistics.likeCount) || 0,
+      views: Number(currentVideo?.statistics.viewCount) || 0,
     },
   };
 };

@@ -7,7 +7,9 @@ const getRandomAPI = () => {
     import.meta.env.VITE_API_KEY_5,
   ].filter((key) => key);
 
-  return APIsUSTD[Math.floor(Math.random() * APIsUSTD.length)];
+  const randomKey = APIsUSTD[Math.floor(Math.random() * APIsUSTD.length)];
+
+  return randomKey;
 };
 
 export { getRandomAPI };

@@ -1,16 +1,14 @@
-import { useGetAvatarQuery } from 'api/endpoints/avatar.api';
 import { ComponentProps } from 'react';
-import { VideoItemSchema } from 'schema/videos.schema';
+import { ChannelItemSchema} from 'schema/channel.schema';
 
 interface ChannelAvatarProps extends Omit<ComponentProps<'img'>, 'src' | 'alt'> {
-  video: VideoItemSchema;
+  channel: ChannelItemSchema;
 }
 
-function ChannelAvatar({ video, ...props }: ChannelAvatarProps) {
-  const { data } = useGetAvatarQuery({ id: video.snippet.channelId });
-  const avatarUrl = data?.items[0].snippet.thumbnails.default.url ?? '';
+function ChannelAvatar({ channel, ...props }: ChannelAvatarProps) {
+  const avatarUrl = channel.snippet.thumbnails.default.url ?? '';
 
-  return <img src={avatarUrl} alt={video.snippet.title} {...props} />;
+  return <img src={avatarUrl} alt={channel.snippet.title} {...props} />;
 }
 
 export { ChannelAvatar };

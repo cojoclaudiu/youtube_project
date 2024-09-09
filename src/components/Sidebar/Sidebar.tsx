@@ -1,20 +1,24 @@
-import { useContext } from 'react';
-import { SidebarContext } from 'context/SidebarContext';
-import useWindowSize from 'hooks/useWindowSize';
+import { ReactNode } from 'react';
+import { useSidebarContext } from 'context/SidebarContext';
 import { SidebarOpen, SidebarClosed } from 'components';
 
 import styles from './Sidebar.module.css';
 
+interface RenderSidebarProps {
+  open: ReactNode;
+  close: ReactNode;
+}
+
+function RenderSidebar({ open, close }: RenderSidebarProps) {
+  const { sidebar } = useSidebarContext();
+
+  return sidebar ? open : close;
+}
+
 function Sidebar() {
-  let { sidebar } = useContext(SidebarContext);
-  const width = useWindowSize();
-
-  if (width > 1400) sidebar = !sidebar;
-  if (width < 650) sidebar = false;
-
   return (
     <aside className={styles.sidebarContainer}>
-      {sidebar ? <SidebarOpen /> : <SidebarClosed />}
+      <RenderSidebar open={<SidebarOpen />} close={<SidebarClosed />} />
     </aside>
   );
 }

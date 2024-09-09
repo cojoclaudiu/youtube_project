@@ -6,11 +6,13 @@ import { useGetVideosQuery } from 'api/endpoints/videos.api';
 
 import styles from './RelatedVideos.module.css';
 import { ViewsCount } from 'components/ViewsCount';
+import { skipToken } from '@reduxjs/toolkit/query';
 
 function RelatedVideos() {
   const { relatedVideos } = useRelatedVideos();
-  const videoIds = relatedVideos?.map((item) => item.id.videoId).join(',');
-  const { data } = useGetVideosQuery({ videoIds });
+  const videoIds = relatedVideos?.map((item) => item.id).join(',');
+
+  const { data } = useGetVideosQuery(videoIds ? { videoIds } : skipToken);
 
   return (
     <div className={styles.sidebarRelated}>

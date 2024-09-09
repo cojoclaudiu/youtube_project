@@ -31,4 +31,4 @@ export const videosApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetVideosQuery, useLazyGetVideosQuery } = videosApi;
+export const { useGetVideosQuery } = videosApi;

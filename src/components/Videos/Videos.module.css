@@ -1,191 +1,33 @@
 .videosContainer {
   display: grid;
-  grid-template-columns: repeat(6, 360px);
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: 20px 15px;
-  padding: 0 20px;
-}
-
-@media only screen and (max-width: 2670px) {
-  .videosContainer {
-    grid-template-columns: repeat(5, 360px);
-  }
-}
-
-@media only screen and (max-width: 2340px) {
-  .videosContainer {
-    grid-template-columns: repeat(4, 360px);
-  }
-  .thumbnailContainer {
-    max-height: 202.5px;
-  }
-}
-
-@media only screen and (max-width: 1880px) {
-  .videosContainer {
-    grid-template-columns: repeat(4, minmax(150px, 340px));
-  }
-
-  .thumbnailContainer {
-    max-height: 191.25px;
-  }
-}
-
-@media only screen and (max-width: 1700px) {
-  .videosContainer {
-    grid-template-columns: repeat(4, minmax(150px, 320px));
-  }
-
-  .thumbnailContainer {
-    max-height: 180px;
-  }
-}
-
-@media only screen and (max-width: 1620px) {
-  .videosContainer {
-    grid-template-columns: repeat(3, minmax(150px, 360px));
-  }
-
-  .thumbnailContainer {
-    max-height: 202.5px;
-  }
-}
-
-@media only screen and (max-width: 1400px) {
-  .videosContainer {
-    grid-template-columns: repeat(3, minmax(150px, 320px));
-  }
-
-  .thumbnailContainer {
-    max-height: 180px;
-  }
-}
-
-@media only screen and (max-width: 1300px) {
-  .videosContainer {
-    grid-template-columns: repeat(3, minmax(150px, 280px));
-  }
-
-  .thumbnailContainer {
-    max-height: 157.5px;
-  }
-}
-
-@media only screen and (max-width: 1160px) {
-  .videosContainer {
-    grid-template-columns: repeat(2, minmax(150px, 360px));
-  }
-
-  .thumbnailContainer {
-    max-height: 202.5px;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .videosContainer {
-    grid-template-columns: repeat(2, minmax(150px, 280px));
-  }
-
-  .thumbnailContainer {
-    max-height: 157.5px;
-  }
-}
-
-@media only screen and (max-width: 870px) {
-  .videosContainer {
-    grid-template-columns: repeat(2, minmax(150px, 240px));
-  }
-
-  .thumbnailContainer {
-    max-height: 157.5px;
-  }
-}
-
-@media only screen and (max-width: 870px) {
-  .videosContainer {
-    grid-template-columns: repeat(2, minmax(150px, 220px));
-  }
-
-  .thumbnailContainer {
-    max-height: 123.75px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  .videosContainer {
-    grid-template-columns: minmax(150px, 500px);
-  }
-
-  .thumbnailContainer {
-    max-height: 281.25px;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-  .videosContainer {
-    grid-template-columns: minmax(150px, 400px);
-  }
-
-  .thumbnailContainer {
-    max-height: 225px;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-  .videosContainer {
-    grid-template-columns: minmax(150px, 400px);
-  }
-
-  .thumbnailContainer {
-    max-height: 225px;
-  }
-}
-
-@media only screen and (max-width: 470px) {
-  .videosContainer {
-    grid-template-columns: minmax(150px, 290px);
-  }
-
-  .thumbnailContainer {
-    max-height: 163.13px;
-  }
-}
-
-@media only screen and (max-width: 470px) {
-  .videosContainer {
-    grid-template-columns: minmax(150px, 350px);
-  }
-
-  .thumbnailContainer {
-    max-height: 196.88px;
-  }
-}
-
-@media only screen and (max-width: 390px) {
-  .videosContainer {
-    grid-template-columns: minmax(150px, 310px);
-  }
-
-  .thumbnailContainer {
-    max-height: 174.38px;
-  }
+  padding: 20px;
+  width: 100%;
 }
 
 .videoContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 }
 
 .thumbnailContainer {
   display: flex;
   position: relative;
-  height: 202.5px;
+  height: 189px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.thumbnailContainer:hover {
+  border-radius: 0px;
 }
 
 .thumbnailImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  aspect-ratio: 16 / 9;
 }
 
 .videoDetails {

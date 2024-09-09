@@ -1,6 +1,10 @@
 /* SIGN IN BTN */
 .outlineButton {
   color: var(--blue);
+
+  @media only screen and (max-width: 935px) {
+    display: none;
+  }
 }
 
 .signInBtn {

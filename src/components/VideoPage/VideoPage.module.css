@@ -1,29 +1,22 @@
 .playerPage {
-  grid-row: 2/4;
-  grid-column: 2/3;
   display: grid;
-  grid-template-columns: min-content 400px;
+  grid-template-columns: 3fr 1fr;
+  height: max-content;
+
   justify-content: center;
   gap: 0 20px;
-  margin-top: 20px;
-
-  margin-top: 20px;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  padding: 20px;
 }
 
-@media only screen and (max-width: 1620px) {
+@media only screen and (max-width: 1080px) {
   .playerPage {
-    grid-template-columns: min-content;
+    grid-template-columns: 1fr;
   }
 }
 
-.playerPage::-webkit-scrollbar {
-  /* WebKit */
-  width: 0;
-  height: 0;
-}
-
 .videoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: max-content;
 }

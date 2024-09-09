@@ -1,10 +1,5 @@
 .sidebarOpen {
   font-size: 14px;
   width: 250px;
-  overflow: hidden;
-  scrollbar-color: #cbcbcb transparent;
-}
-
-.sidebarOpen:hover {
-  overflow-y: scroll;
+  overflow: auto;
 }
